@@ -1,0 +1,56 @@
+.nav-bar {
+  background-color: #004AAD;
+  padding: 0.5rem 1.2rem;
+}
+
+.homepage-header {
+  background-color: #F6F6F6;
+  padding: 2rem;
+}
+
+.homepage-header p {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  font-weight: 600;
+}
+
+.homepage-header p:last-child {
+  font-weight: 500;
+  font-style: italic;
+}
+
+/* Semantic classes */
+
+.row, .flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.row-ud-center,
+.col-rl-center {
+  align-items: center;
+}
+
+.row-rl-center,
+.col-ud-center {
+  justify-content: center;
+}
+
+.row-space-between {
+  justify-content: space-between;
+}
+
+.margin-auto {
+  margin: auto
+}
+
+.margin-left {
+  margin-left: auto;
+}
+
+.text-align-center {
+  text-align: center;
+}
