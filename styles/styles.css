@@ -19,6 +19,37 @@
   font-style: italic;
 }
 
+.homepage-title {
+  margin-top: 0.3rem;
+  font-size: 1.1rem;
+}
+
+[data-view="homepage"]>.content {
+  padding: 1.6rem;
+}
+
+[data-view="homepage"]>.content h2 {
+  font-weight: 500;
+  font-size: 1.45rem;
+}
+
+[data-view="homepage"] > .content a {
+  color:#004AAD;
+  font-size: 1rem;
+  font-weight: 600;
+  font-style: italic;
+  text-underline-offset: 0.32rem;
+}
+
+[data-view="homepage"]>.content > .item {
+  margin-bottom: 0.5rem;
+}
+
+[data-view="homepage"]>.content img {
+  width: 100%;
+}
+
+
 /* Semantic classes */
 
 .row, .flex {
