@@ -1,6 +1,22 @@
 .nav-bar {
   background-color: #004AAD;
   padding: 0.5rem 1.2rem;
+  position: relative;
+}
+
+.nav-bar a {
+  position: absolute;
+  right: 1.5rem;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-bar .search-icon {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.5s;
 }
 
 .homepage-header {
@@ -106,6 +122,19 @@
 
 .hamburger-menu img {
   width: 100%;
+}
+
+.search-container > input {
+  font-size: 1rem;
+  background-color: #004AAD;
+  border: none;
+  color: white;
+  margin-right: 0.5rem;
+}
+
+.search-container>input:focus {
+  border: none;
+  outline: none;
 }
 
 /* Semantic classes */
