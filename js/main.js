@@ -7,7 +7,7 @@ $searchInput = $navBar.querySelector("input");
 $searchX = $navBar.querySelector(".search-x");
 
 $navBar.addEventListener("click", handleNavBarClicks);
-$hamburgerMenu.addEventListener("click", handleHamburgerMenuClicks);
+$hamburgerModal.addEventListener("click", handleHamburgerModalClicks);
 $navForm.addEventListener("submit", handleNavFormSubmits);
 $searchInput.addEventListener("blur", hideSearchInput);
 
@@ -39,8 +39,8 @@ function hideSearchInput() {
   }, 10);
 }
 
-function handleHamburgerMenuClicks(event) {
-  if (event.target.matches(".hamburger-exit")) {
+function handleHamburgerModalClicks(event) {
+  if (event.target.matches(".hamburger-exit") || event.target.matches(".hamburger-menu-container")) {
     $hamburgerMenu.style.transform = `translateX(0)`;
     setTimeout(() => {
       $hamburgerModal.classList.add("hidden");
