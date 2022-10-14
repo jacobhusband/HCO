@@ -1,3 +1,4 @@
+<!-- eslint-disable -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,7 +17,7 @@
     <title>HCO</title>
   </head>
   <body>
-    <div class="container" data-view="homepage">
+    <div class="container">
       <div class="nav-bar row row-ud-center row-space-between">
         <img class="hamburger-icon" src="images/hamburger.webp" alt="hamburger menu" />
         <form class="search-container row row-ud-center">
@@ -25,6 +26,8 @@
           <img class="search-icon" src="images/search.webp" alt="search icon" />
         </form>
       </div>
+    </div>
+    <div class="container hidden" data-view="homepage">
       <div class="homepage-header text-align-center">
         <img src="images/HCO.webp" alt="HCO logo" />
         <p>Enjoy our quick and friendly deliveries</p>
@@ -54,6 +57,19 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="container" data-view="contact">
+      <h1>Contact Us</h1>
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" />
+        <label for="email">Email</label>
+        <input type="text" id="email" />
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" />
+        <label for="information">Message</label>
+        <textarea name="message" id="information"></textarea>
+      </form>
     </div>
     <div class="hamburger-menu-container hidden">
       <div class="hamburger-menu">
