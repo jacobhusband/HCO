@@ -1,3 +1,15 @@
+input,
+textarea {
+  border: none;
+  text-decoration: none;
+  resize: none;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
 .nav-bar {
   background-color: #004AAD;
   padding: 0.5rem 1.2rem;
@@ -135,6 +147,46 @@
 .search-container>input:focus {
   border: none;
   outline: none;
+}
+
+[data-view="contact"] {
+  height: 100vh;
+  background-color: #E9E9E9;
+  padding: 1rem 2rem 2rem 1.75rem;
+}
+
+[data-view="contact"] h1 {
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+[data-view="contact"] label,
+[data-view="contact"] input,
+[data-view="contact"] button {
+  display: block;
+}
+
+[data-view="contact"] label,
+[data-view="contact"] input,
+[data-view="contact"] textarea {
+  font-size: 1.25rem;
+  width: 100%
+}
+
+[data-view="contact"] label {
+  font-weight: 500;
+  padding-left: 0.2rem;
+}
+
+[data-view="contact"] input,
+[data-view="contact"] textarea {
+  border-radius: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  margin: 0.25rem 0 0.75rem 0;
+}
+
+[data-view="contact"] button {
+  margin-left: auto;
 }
 
 /* Semantic classes */
