@@ -9,6 +9,7 @@ $searchX = $navBar.querySelector(".search-x");
 $navBar.addEventListener("click", handleNavBarClicks);
 $hamburgerMenu.addEventListener("click", handleHamburgerMenuClicks);
 $navForm.addEventListener("submit", handleNavFormSubmits);
+$searchInput.addEventListener("blur", hideSearchInput);
 
 function handleNavBarClicks(event) {
   if (event.target.matches(".hamburger-icon")) {
@@ -26,12 +27,16 @@ function handleNavBarClicks(event) {
     }, 400);
   }
   if (event.target.matches(".search-x")) {
-    $searchX.classList.add("hidden");
-    $searchIcon.style.transform = `translateX(0)`;
-    setTimeout(() => {
-      $searchInput.classList.add("hidden");
-    }, 10);
+    hideSearchInput();
   }
+}
+
+function hideSearchInput() {
+  $searchX.classList.add("hidden");
+  $searchIcon.style.transform = `translateX(0)`;
+  setTimeout(() => {
+    $searchInput.classList.add("hidden");
+  }, 10);
 }
 
 function handleHamburgerMenuClicks(event) {
@@ -45,4 +50,5 @@ function handleHamburgerMenuClicks(event) {
 
 function handleNavFormSubmits(event) {
   event.preventDefault();
+  $navForm.reset();
 }
