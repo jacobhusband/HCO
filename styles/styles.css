@@ -149,13 +149,19 @@ textarea:focus {
   outline: none;
 }
 
-[data-view="contact"] {
+[data-view="contact"],
+[data-view="about"] {
   height: 100vh;
   background-color: #E9E9E9;
   padding: 1rem 2rem 2rem 1.75rem;
 }
 
-[data-view="contact"] h1 {
+[data-view="about"] {
+  background-color: #fff;
+}
+
+[data-view="contact"] h1,
+[data-view="about"] h1 {
   font-weight: 600;
   margin-bottom: 1.1rem;
 }
@@ -196,6 +202,19 @@ textarea:focus {
   font-size: 1rem;
   font-weight: 300;
   margin-top: 0.4rem;
+}
+
+[data-view="about"] img {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 0.25rem;
+  /* box-shadow: 2px 2px 10px 3px rgba(0, 0, 0, 0.2); */
+}
+
+[data-view="about"] p {
+  margin: 1rem 0;
+  line-height: 1.5;
 }
 
 input::placeholder,
