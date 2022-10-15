@@ -58,20 +58,21 @@
         </div>
       </div>
     </div>
-    <div class="container" data-view="contact">
+    <div class="container hidden" data-view="contact">
       <h1 class="text-align-center">Contact Us</h1>
       <form>
         <label for="name">Name</label>
-        <input type="text" id="name" />
+        <input type="text" id="name" placeholder="John Smith" required />
         <label for="email">Email</label>
-        <input type="text" id="email" />
+        <input type="email" id="email" placeholder="johnsmith@gmail.com" required />
         <label for="phone">Phone</label>
-        <input type="text" id="phone" />
+        <input type="text" id="phone" placeholder="888-888-8888" required />
         <label for="information">Message</label>
-        <textarea rows="6" name="message" id="information"></textarea>
+        <textarea rows="6" name="message" id="information" placeholder="I am interested in..." required></textarea>
         <button>Submit</button>
       </form>
     </div>
+    <div class="container" data-view="about"></div>
     <div class="hamburger-menu-container hidden">
       <div class="hamburger-menu">
         <div class="row">

@@ -12,7 +12,7 @@ textarea:focus {
 
 .nav-bar {
   background-color: #004AAD;
-  padding: 0.5rem 1.2rem;
+  padding: 0.6rem 1rem;
   position: relative;
 }
 
@@ -157,7 +157,7 @@ textarea:focus {
 
 [data-view="contact"] h1 {
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin-bottom: 1.1rem;
 }
 
 [data-view="contact"] label,
@@ -186,7 +186,21 @@ textarea:focus {
 }
 
 [data-view="contact"] button {
+  background-color: #004AAD;
+  color: #fff;
+  font-family: 'Source Sans Pro', sans-serif;
+  border: none;
   margin-left: auto;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: 300;
+  margin-top: 0.4rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgb(179, 179, 179)
 }
 
 /* Semantic classes */
