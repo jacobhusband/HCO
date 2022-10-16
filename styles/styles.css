@@ -174,11 +174,16 @@ a {
 
 [data-view="about"] {
   background-color: #fff;
+}
 
+[data-view="inventory"] {
+  padding: 0.85rem 0;
+  flex-grow: 3;
 }
 
 [data-view="contact"] h1,
-[data-view="about"] h1 {
+[data-view="about"] h1,
+[data-view="inventory"] h1 {
   font-weight: 600;
   margin-bottom: 1.1rem;
 }
@@ -237,6 +242,18 @@ a {
 input::placeholder,
 textarea::placeholder {
   color: rgb(179, 179, 179)
+}
+
+[data-view="inventory"] .categories {
+  background-color: #F4F4F4;
+  font-size: 1.25rem;
+  padding: 1.25rem 3rem;
+}
+
+[data-view="inventory"] .categories > a {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  width: 100px;
 }
 
 nav.footer {
@@ -300,6 +317,16 @@ nav.footer {
 
 .text-align-left {
   text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.underline {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 0.5px;
 }
 
 @media only screen and (min-width: 700px) {
