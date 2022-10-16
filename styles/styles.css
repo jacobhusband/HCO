@@ -80,6 +80,9 @@ a {
   font-weight: 600;
   font-style: italic;
   text-underline-offset: 0.32rem;
+  font-family: 'Playfair Display',
+    serif;
+  text-decoration: underline;
 }
 
 [data-view="homepage"]>.content .item-header {

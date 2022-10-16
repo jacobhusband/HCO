@@ -1,4 +1,9 @@
 $navBar = document.querySelector(".nav-bar");
+$homepage = document.querySelector("[data-view='homepage']");
+$contact = document.querySelector("[data-view='contact']");
+$about = document.querySelector("[data-view='about']");
+$faq = document.querySelector("[data-view='faq']");
+
 $hamburgerModal = document.querySelector(".hamburger-menu-container");
 $hamburgerMenu = $hamburgerModal.firstElementChild;
 $navForm = $navBar.querySelector("form");
