@@ -181,9 +181,12 @@ a {
   flex-grow: 3;
 }
 
-[data-view="contact"] h1,
-[data-view="about"] h1,
 [data-view="inventory"] h1 {
+  margin-bottom: 1rem;
+}
+
+[data-view="contact"] h1,
+[data-view="about"] h1{
   font-weight: 600;
   margin-bottom: 1.1rem;
 }
