@@ -158,15 +158,20 @@ a {
   outline: none;
 }
 
+[data-view="contact"],
+[data-view="about"],
+[data-view="faq"] {
+  padding: 1rem 2rem 1rem 1.75rem;
+}
+
 [data-view="contact"] {
   flex-grow: 3;
   background-color: #E9E9E9;
-  padding: 1rem 2rem 1rem 1.75rem;
 }
 
 [data-view="about"] {
   background-color: #fff;
-  padding: 1rem 2rem 1rem 1.75rem;
+
 }
 
 [data-view="contact"] h1,
@@ -236,6 +241,19 @@ nav.footer {
   padding: 1rem 1.75rem;
   color: #004AAD;
 }
+
+[data-view="faq"] {
+  flex-grow: 3;
+}
+
+[data-view="faq"] img {
+  width: 46px;
+}
+
+[data-view="faq"] p {
+  padding: 1rem 0;
+}
+
 
 /* Semantic classes */
 
