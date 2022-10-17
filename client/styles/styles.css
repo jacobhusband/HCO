@@ -345,6 +345,14 @@ nav.footer {
   text-underline-offset: 1px;
 }
 
+[data-subview="sofas"] [data-link="sofas"],
+[data-subview="mattresses"] [data-link="mattresses"],
+[data-subview="tables"] [data-link="tables"] {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 0.5px;
+}
+
 
 /* Semantic classes */
 
