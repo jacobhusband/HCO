@@ -51,17 +51,17 @@ function handleHamburgerModalClicks(event) {
     hideModal();
   }
   if (event.target.parentElement.matches("nav")) {
-    if (event.target.textContent === "Home") {
+    if (event.target.dataset.link === "homepage") {
       revealPage("home");
-    } else if (event.target.textContent === "About") {
+    } else if (event.target.dataset.link === "about") {
       revealPage("about");
-    } else if (event.target.textContent === "Contact") {
+    } else if (event.target.dataset.link === "contact") {
       revealPage("contact");
-    } else if (event.target.textContent === "FAQ") {
+    } else if (event.target.dataset.link === "faq") {
       revealPage("faq");
-    } else if (event.target.textContent === "Inventory") {
+    } else if (event.target.dataset.link === "inventory") {
       revealPage("inventory");
-    } else if (event.target.textContent === "Reviews") {
+    } else if (event.target.dataset.link === "reviews") {
       revealPage("reviews");
     }
   }
