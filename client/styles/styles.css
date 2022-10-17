@@ -74,7 +74,8 @@ a {
   font-size: 1.45rem;
 }
 
-[data-view="homepage"] > .content a {
+[data-view="homepage"] > .content a,
+.description > a.link {
   color:#004AAD;
   font-size: 1rem;
   font-weight: 600;
@@ -163,7 +164,8 @@ a {
 
 [data-view="contact"],
 [data-view="about"],
-[data-view="faq"] {
+[data-view="faq"],
+.products {
   padding: 1rem 2rem 1rem 1.75rem;
 }
 
@@ -277,6 +279,72 @@ nav.footer {
   padding: 1rem 0;
 }
 
+.products > .item {
+  margin-bottom: 1.75rem;
+}
+
+.item h2 {
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.item > .img-container > img:first-child {
+  width: 100%;
+}
+
+.item img.left,
+.item img.right {
+  width: 24px;
+  top: calc(50% - 12px);
+}
+
+.item img.left {
+  left: 5px;
+  transform: rotate(180deg);
+}
+
+.item img.right {
+  right: 5px;
+}
+
+.item .dots {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  gap: 0.35rem;
+  padding-bottom: 1rem;
+}
+
+.item .dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.item .dot.filled {
+  background-color: white;
+}
+
+.description > span.price {
+  font-weight: 600;
+}
+
+.description > p.text {
+  line-height: 1.75;
+  display: inline;
+  padding-left: 1rem;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.description > a.link {
+  display: block;
+  margin-top: 0.5rem;
+  text-underline-offset: 1px;
+}
+
 
 /* Semantic classes */
 
@@ -324,6 +392,18 @@ nav.footer {
 
 .text-align-right {
   text-align: right;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.pos-abs {
+  position: absolute;
+}
+
+.row-flex-end {
+  align-items: flex-end;
 }
 
 .underline {
