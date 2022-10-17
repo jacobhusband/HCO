@@ -8,13 +8,15 @@ $inventory = $body.querySelector("[data-view='inventory']");
 $reviews = $body.querySelector("[data-view='reviews']");
 $hamburgerModal = $body.querySelector(".hamburger-menu-container");
 $hamburgerMenu = $hamburgerModal.firstElementChild;
+$footer = $body.querySelector("nav.footer");
 $navForm = $navBar.querySelector("form");
 $searchIcon = $navBar.querySelector(".search-icon");
 $searchInput = $navBar.querySelector("input");
 $searchX = $navBar.querySelector(".search-x");
 
 $navBar.addEventListener("click", handleNavBarClicks);
-$hamburgerModal.addEventListener("click", handleHamburgerModalClicks);
+$hamburgerModal.addEventListener("click", handleNavClicks);
+$footer.addEventListener("click", handleNavClicks);
 $navForm.addEventListener("submit", handleNavFormSubmits);
 $searchInput.addEventListener("blur", hideSearchInput);
 
@@ -46,7 +48,7 @@ function hideSearchInput() {
   }, 10);
 }
 
-function handleHamburgerModalClicks(event) {
+function handleNavClicks(event) {
   if (event.target.matches(".hamburger-exit") || event.target.matches(".hamburger-menu-container")) {
     hideModal();
   }
