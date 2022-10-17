@@ -4,6 +4,8 @@ $homepage = $body.querySelector("[data-view='homepage']");
 $contact = $body.querySelector("[data-view='contact']");
 $about = $body.querySelector("[data-view='about']");
 $faq = $body.querySelector("[data-view='faq']");
+$inventory = $body.querySelector("[data-view='inventory']");
+$reviews = $body.querySelector("[data-view='reviews']");
 $hamburgerModal = $body.querySelector(".hamburger-menu-container");
 $hamburgerMenu = $hamburgerModal.firstElementChild;
 $navForm = $navBar.querySelector("form");
@@ -57,6 +59,10 @@ function handleHamburgerModalClicks(event) {
       revealPage("contact");
     } else if (event.target.textContent === "FAQ") {
       revealPage("faq");
+    } else if (event.target.textContent === "Inventory") {
+      revealPage("inventory");
+    } else if (event.target.textContent === "Reviews") {
+      revealPage("reviews");
     }
   }
 }
@@ -71,6 +77,10 @@ function revealPage(dataView) {
     $contact.classList.remove("hidden");
   } else if (dataView === "faq") {
     $faq.classList.remove("hidden");
+  } else if (dataView === "inventory") {
+    $inventory.classList.remove("hidden");
+  } else if (dataView === "reviews") {
+    $reviews.classList.remove("hidden");
   }
   hideModal();
 }
