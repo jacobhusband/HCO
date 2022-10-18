@@ -1,5 +1,11 @@
-CREATE TABLE [IF NOT EXISTS] products (
-    id INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE products (
+    id SERIAL NOT NULL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    price INT NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    price INT NOT NULL
 );
+
+INSERT INTO "products" ("name", "description", "price")
+VALUES ('grey sofa', 'old but good', 300),
+       ('blue sofa', 'stinky smelly', 400)
+RETURNING *;
