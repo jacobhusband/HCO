@@ -71,13 +71,13 @@ a {
 
 [data-view="homepage"]>.content h2 {
   font-weight: 500;
-  font-size: 1.45rem;
+  font-size: 1rem;
 }
 
 [data-view="homepage"] > .content a,
 .description > a.link {
   color:#004AAD;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   font-style: italic;
   text-underline-offset: 0.32rem;

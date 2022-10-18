@@ -19,6 +19,17 @@ $hamburgerModal.addEventListener("click", handleNavClicks);
 $footer.addEventListener("click", handleNavClicks);
 $navForm.addEventListener("submit", handleNavFormSubmits);
 $searchInput.addEventListener("blur", hideSearchInput);
+$inventory.addEventListener("click", handleInventoryClicks);
+
+function handleInventoryClicks(event) {
+  if (event.target.matches('[data-link="mattresses"]')) {
+    event.target.closest(".container").dataset.subview = "mattresses";
+  } else if (event.target.matches('[data-link="sofas"]')) {
+    event.target.closest(".container").dataset.subview = "sofas";
+  } else if (event.target.matches('[data-link="tables"]')) {
+    event.target.closest(".container").dataset.subview = "tables";
+  }
+}
 
 function handleNavBarClicks(event) {
   if (event.target.matches(".hamburger-icon")) {
