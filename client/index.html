@@ -1,0 +1,193 @@
+<!-- eslint-disable -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <title>HCO</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav class="nav-bar row row-ud-center row-space-between">
+        <img class="hamburger-icon" src="images/hamburger.webp" alt="hamburger menu" />
+        <form class="search-container row row-ud-center">
+          <input class="hidden" type="text" name="search" />
+          <a class="search-x hidden" href="#">X</a>
+          <img class="search-icon" src="images/search.webp" alt="search icon" />
+        </form>
+      </nav>
+    </div>
+    <div class="container hidden" data-view="homepage">
+      <div class="homepage-header text-align-center">
+        <img src="images/HCO.webp" alt="HCO logo" />
+        <p>E-commerce furniture store in Orange County, California</p>
+        <p>FREE DELIVERY to Orange County Residents</p>
+        <p>Delivery to surrounding counties for a fee</p>
+        <p>Check out our couches, tables, and mattresses (coming soon)</p>
+      </div>
+      <div class="homepage-title text-align-center">
+        <h1>Current Inventory</h1>
+      </div>
+      <div class="content">
+        <div class="item-container">
+          <div class="item-header row row-ud-center row-space-between">
+            <h2>Couches | Sectionals | Recliners</h2>
+            <a href="#">See Inventory</a>
+          </div>
+          <div class="img-container">
+            <img src="images/couch-blue.webp" alt="couch blue" />
+          </div>
+        </div>
+        <div class="item-container">
+          <div class="item-header row row-ud-center row-space-between">
+            <h2>Dining Table Sets</h2>
+            <a href="#">See Inventory</a>
+          </div>
+          <div class="img-container">
+            <img src="images/table-white.webp" alt="couch blue" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container hidden" data-view="contact">
+      <h1 class="text-align-center">Contact Us</h1>
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="John Smith" required />
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="johnsmith@gmail.com" required />
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" placeholder="888-888-8888" required />
+        <label for="information">Message</label>
+        <textarea rows="6" name="message" id="information" placeholder="I am interested in..." required></textarea>
+        <button>Submit</button>
+      </form>
+    </div>
+    <div class="container hidden" data-view="about">
+      <h1 class="text-align-center">About Us</h1>
+      <div class="img-container">
+        <img src="images/truck-leaning.webp" alt="people leaning on truck" />
+      </div>
+      <p>
+        HCO Furniture is an online refurbished furniture store that offers couches, dining tables and mattresses. We serve Orange County and surrounding
+        counties in Southern California. A family business, HCO or H-Co, stands for Husband Company furniture, with Husband being the family last name
+        (weird/different I know). Our goal is to bring the highest quality, yet affordable furniture to our local community.
+      </p>
+      <div class="img-container">
+        <img src="images/truck-riding.webp" alt="people leaning on truck" />
+      </div>
+      <p>
+        We strive to make the furniture sales process as easy and transparent as possible. All of our listings will show exactly what you will get with high
+        quality photos and accompanying video tours.
+      </p>
+      <div class="img-container">
+        <img src="images/couch-staged.webp" alt="people leaning on truck" />
+      </div>
+      <p>
+        In person tours of the furniture is also available so you can see and/or test before you buy! We also offer free delivery to all Orange County
+        Residents! (Delivery to surrounding counties as well for an added fee). If you live in Southern California and need high quality furniture but don't
+        want to break the bank to furnish your living space, then you came to the right place!
+      </p>
+    </div>
+    <div class="container hidden" data-view="faq">
+      <div class="row row-ud-center row-space-between">
+        <p>What types of sofas do you carry?</p>
+        <img src="images/arrow-head-right.webp" alt="arrow right" />
+      </div>
+      <div class="row row-ud-center row-space-between">
+        <p>How do I know if delivery is free when there are so many locations in the world?</p>
+        <img src="images/arrow-head-right.webp" alt="arrow right" />
+      </div>
+      <div class="row row-ud-center row-space-between">
+        <p>What types of sofas do you carry?</p>
+        <img src="images/arrow-head-right.webp" alt="arrow right" />
+      </div>
+    </div>
+    <div class="container" data-view="inventory" data-subview="sofas">
+      <h1 class="text-align-center">Inventory</h1>
+      <div class="categories row row-ud-center row-space-between">
+        <a data-link="sofas" class="" href="#">Sofas</a>
+        <a data-link="mattresses" class="text-align-center" href="#">Mattresses</a>
+        <a data-link="tables" class="text-align-right" href="#">Tables</a>
+      </div>
+      <div class="products">
+        <div class="item sofa">
+          <h2>Gray Three Seater Sofa</h2>
+          <div class="img-container pos-rel">
+            <img src="images/couch-blue.webp" alt="blue couch" />
+            <img class="left pos-abs" src="images/arrow-head-right-circle.webp" alt="arrow" />
+            <img class="right pos-abs" src="images/arrow-head-right-circle.webp" alt="arrow" />
+            <div class="dots row pos-abs row-rl-center row-flex-end">
+              <div class="dot filled"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
+          <div class="description">
+            <span class="price">$499</span>
+            <p class="text">Like new sofa with 100% cotten fabric along with 50/50 polyester linen pillows included.</p>
+            <a class="link" href="#">I want it</a>
+          </div>
+        </div>
+        <div class="item sofa">
+          <h2>Gray Three Seater Sofa</h2>
+          <div class="img-container pos-rel">
+            <img src="images/couch-blue.webp" alt="blue couch" />
+            <img class="left pos-abs" src="images/arrow-head-right-circle.webp" alt="arrow" />
+            <img class="right pos-abs" src="images/arrow-head-right-circle.webp" alt="arrow" />
+            <div class="dots row pos-abs row-rl-center row-flex-end">
+              <div class="dot filled"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
+          <div class="description">
+            <span class="price">$499</span>
+            <p class="text">Like new sofa with 100% cotten fabric along with 50/50 polyester linen pillows included.</p>
+            <a class="link" href="#">I want it</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container hidden" data-view="reviews"></div>
+    <div class="hamburger-menu-container hidden">
+      <div class="hamburger-menu">
+        <div class="row">
+          <div class="img-container">
+            <img src="images/HCO.webp" alt="HCO logo" />
+          </div>
+          <div class="hamburger-exit-container">
+            <a class="hamburger-exit" href="#">X</a>
+          </div>
+        </div>
+        <nav class="row flex-col text-align-left">
+          <a data-link="homepage" href="#">Home</a>
+          <a data-link="inventory" href="#">Inventory</a>
+          <a data-link="about" href="#">About</a>
+          <a data-link="contact" href="#">Contact</a>
+          <a data-link="faq" href="#">FAQ</a>
+          <a data-link="reviews" href="#">Reviews</a>
+        </nav>
+      </div>
+    </div>
+    <nav class="footer row row-space-between">
+      <a data-link="homepage" href="#">Home</a>
+      <a data-link="inventory" href="#">Inventory</a>
+      <a data-link="about" href="#">About</a>
+      <a data-link="contact" href="#">Contact</a>
+      <a data-link="faq" href="#">FAQ</a>
+      <a data-link="reviews" href="#">Reviews</a>
+    </nav>
+    <script src="js/main.js"></script>
+  </body>
+</html>
