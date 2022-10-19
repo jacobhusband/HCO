@@ -2,9 +2,9 @@
   "name": "hco",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "js/server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon js/server.js"
   },
   "repository": {
     "type": "git",
