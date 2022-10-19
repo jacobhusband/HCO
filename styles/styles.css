@@ -353,6 +353,40 @@ nav.footer {
   text-decoration-thickness: 0.5px;
 }
 
+body.login {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form.login label {
+  font-family: sans-serif
+}
+
+form.login h1 {
+  color:rgb(37, 37, 37);
+  font-size: 4rem;
+  font-family: sans-serif;
+  margin-bottom: 1rem;
+}
+
+form.login input {
+  border: 1px solid black;
+  margin: 0.25rem 0 1rem 0;
+  border-radius: 0.25rem;
+}
+
+form.login button {
+  margin-left: auto;
+  width: 80px;
+  background-color: #004AAD;
+  border: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color:#fff;
+}
+
 
 /* Semantic classes */
 
