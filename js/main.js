@@ -13,6 +13,12 @@ const $navForm = $navBar.querySelector("form");
 const $searchIcon = $navBar.querySelector(".search-icon");
 const $searchInput = $navBar.querySelector("input");
 const $searchX = $navBar.querySelector(".search-x");
+const client = filestack.init("Au6yH4AISTOa8ZAgolrtGz");
+const options = {
+  maxFiles: 10,
+};
+
+// client.picker(options).open();
 
 $navBar.addEventListener("click", handleNavBarClicks);
 $hamburgerModal.addEventListener("click", handleNavClicks);
