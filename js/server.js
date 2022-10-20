@@ -1,12 +1,10 @@
 const express = require("express");
 const pg = require("pg");
-const pool = new Pool();
 const app = express();
 const cors = require("cors");
 const path = require("path");
-
 const db = new pg.Pool({
-  connectionString: "postgres://dev:dev@localhost/studentGradeTable",
+  connectionString: "postgres://dev:dev@localhost/hco",
   ssl: {
     rejectUnauthorized: false,
   },
@@ -17,10 +15,21 @@ app.use(express.json());
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, "../styles")));
 
-app.get("/api/db", (req, res, next) => {
-  res.status(200);
-  res.json({ id: req.params.id });
-  next();
+app.get("/api/db/products", (req, res, next) => {
+  const query = `
+    select * from "images"
+    join "products" using ("productid");
+  `;
+  db.query(query)
+    .then((result) => {
+      res.status(200).json(result.rows);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500).json({
+        error: `An unexpected error occurred`,
+      });
+    });
 });
 
 app.get("/", (req, res, next) => {
