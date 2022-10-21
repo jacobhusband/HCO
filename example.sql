@@ -1,5 +1,5 @@
-drop table if exists bananas
-drop table if exists monkeys
+drop table if exists bananas;
+drop table if exists monkeys;
 
 create table monkeys (
   monkey_no serial primary key,
@@ -18,7 +18,11 @@ insert into monkeys(name, weight)
 values ('Harold', 120.6), ('Jacob', 42.3), ('Ham', 50.6);
 
 insert into bananas(monkey_no, weight, taste)
-values (1, 2, 'good'), (1, 3, 'really good'), (3, 1, 'meh'), (3, 3, 'pretty good');
+values (4, 2, 'good'), (4, 3, 'really good'), (3, 1, 'meh'), (3, 3, 'pretty good');
 
-select monkeys.name, monkeys.weight, bananas.weight as bananWeight, bananas.taste as bananTaste
-from monkeys join bananas on monkeys.monkey_no = bananas.monkey_no;
+insert into bananas(monkey_no, weight, taste)
+values (1, 7, 'glorious'), (1, 5, 'super good'), (3, 2, 'ight'), (3, 4, 'delicious');
+
+select monkeys.name, min(monkeys.weight) as monkeyWeight, json_agg(bananas.taste) as yummyLevel, json_agg(bananas.weight) as bananaWeight
+from monkeys join bananas on monkeys.monkey_no = bananas.monkey_no
+group by monkeys.name;

@@ -1,38 +1,30 @@
-CREATE TABLE products (
-    productId INT GENERATED ALWAYS AS IDENTITY,
-    name VARCHAR(255) NOT NULL,
-    description VARCHAR(255) NOT NULL,
-    price INT NOT NULL,
-    imageId INT,
-    PRIMARY KEY(productId),
-    CONSTRAINT fk_image
-    FOREIGN KEY(imageId)
-        REFERENCES products(productId)
-            ON DELETE CASCADE
+drop table if exists images;
+drop table if exists products;
+
+create table products (
+  product_no serial primary key,
+  name text not null,
+  description text not null,
+  category text not null,
+  price numeric not null,
+  date timestamp not null default current_timestamp
 );
 
-CREATE TABLE images (
-    imageId INT GENERATED ALWAYS AS IDENTITY,
-    productId INT,
-    url VARCHAR(255) NOT NULL,
-    PRIMARY KEY(imageId),
-    CONSTRAINT fk_product
-        FOREIGN KEY(productId)
-            REFERENCES products(productId)
-            ON DELETE SET NULL
+create table images (
+  image_no serial primary key,
+  product_no integer not null references products on delete cascade,
+  url text not null
 );
 
-INSERT INTO products(name, description, price)
-VALUES ('Grey Sofa', 'Old and raggity sofa', 200),
-       ('Blue Sofa', 'Nice and clean sofa', 300);
+insert into products(name, description, category, price)
+values ('Grey Sofa', 'Old and raggity sofa', 'sofa', 200),
+       ('Blue Sofa', 'Nice and clean sofa', 'sofa', 300);
 
-INSERT INTO images(productId, url)
-VALUES (1, 'https://secure.img1-fg.wfcdn.com/im/66690414/compr-r85/1287/128797044/erinn-6725-upholstered-loveseat.jpg'), (2, 'https://thedump.com/images/thumbs/0036751_melbourne-blue-sofa-chaise.jpeg'),
+insert into images(product_no, url)
+values (1, 'https://secure.img1-fg.wfcdn.com/im/66690414/compr-r85/1287/128797044/erinn-6725-upholstered-loveseat.jpg'), (2, 'https://thedump.com/images/thumbs/0036751_melbourne-blue-sofa-chaise.jpeg'),
        (2, 'http://mobileimages.lowes.com/productimages/6917aa19-313e-4b4a-bcb9-a3ba2b0abe98/14914318.jpg');
 
-select "name" as "title",
-       "description" as "info",
-       "url",
-        json_agg("url") as "imageUrls"
-  from "products"
-  join "images" using ("imageid");
+select products.name, products.description, products.price, products.date as date, json_agg(images.url) as url, min(products.category) as category
+from products
+join images on products.product_no = images.product_no
+group by products.name, products.date, products.description, products.price;

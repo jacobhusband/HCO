@@ -1,7 +1,7 @@
 const express = require("express");
 const pg = require("pg");
 const app = express();
-const cors = require("cors");
+// const cors = require("cors");
 const path = require("path");
 const db = new pg.Pool({
   connectionString: "postgres://dev:dev@localhost/hco",
@@ -10,15 +10,18 @@ const db = new pg.Pool({
   },
 });
 
-app.use(cors());
+// app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, "../styles")));
+app.use(express.static(path.join(__dirname, "../images")));
 
-app.get("/api/db/products", (req, res, next) => {
+app.get("/api/products", (req, res, next) => {
   const query = `
-    select * from "images"
-    join "products" using ("productid");
+    select products.name, products.description, products.price, products.date as date, json_agg(images.url) as url, min(products.category) as category
+    from products
+    join images on products.product_no = images.product_no
+    group by products.name, products.date, products.description, products.price;
   `;
   db.query(query)
     .then((result) => {
@@ -32,8 +35,12 @@ app.get("/api/db/products", (req, res, next) => {
     });
 });
 
-app.get("/", (req, res, next) => {
+app.get("/login", (req, res, next) => {
   res.sendFile(path.join(__dirname, "../login.html"));
+});
+
+app.get("/", (req, res, next) => {
+  res.sendFile(path.join(__dirname, "../index.html"));
 });
 
 app.listen(3000, () => {
