@@ -1,3 +1,19 @@
 .container {
   min-width: 360px;
 }
+
+.col {
+  width: 100%;
+}
+
+.col-eighth {
+  width: 12.5%:
+}
+
+.col-fourth {
+  width: 25%;
+}
+
+.col-three-fourth {
+  width: 75%;
+}
