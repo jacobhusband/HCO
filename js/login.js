@@ -6,6 +6,25 @@ const $new = document.querySelector(".new.entry");
 
 $form.addEventListener("submit", handleLogin);
 $admin.addEventListener("click", handleAdminClicks);
+$new.addEventListener("submit", handleNewItems);
+$new.addEventListener("click", handleNewItemClicks);
+
+function handleNewItemClicks(event) {
+  if (event.target.matches("button.img.plus")) {
+    client.picker().open();
+  }
+  if (event.target.matches("button.cancel")) {
+    $new.reset();
+    $new.classList.add("hidden");
+    $admin.classList.remove("hidden");
+  }
+}
+
+function handleNewItems(event) {
+  event.preventDefault();
+
+  event.target.reset();
+}
 
 function handleLogin(event) {
   event.preventDefault();
