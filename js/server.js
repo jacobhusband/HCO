@@ -1,7 +1,6 @@
 const express = require("express");
 const pg = require("pg");
 const app = express();
-// const cors = require("cors");
 const path = require("path");
 const db = new pg.Pool({
   connectionString: "postgres://dev:dev@localhost/hco",
@@ -10,7 +9,6 @@ const db = new pg.Pool({
   },
 });
 
-// app.use(cors());
 app.use(express.json());
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, "../styles")));
@@ -41,6 +39,10 @@ app.get("/login", (req, res, next) => {
 
 app.get("/", (req, res, next) => {
   res.sendFile(path.join(__dirname, "../index.html"));
+});
+
+app.post("/api/images", (req, res, next) => {
+  console.log(req);
 });
 
 app.listen(3000, () => {
