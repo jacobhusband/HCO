@@ -2,12 +2,17 @@ const express = require("express");
 const pg = require("pg");
 const app = express();
 const path = require("path");
+const filestack = require("filestack-js");
 const db = new pg.Pool({
   connectionString: "postgres://dev:dev@localhost/hco",
   ssl: {
     rejectUnauthorized: false,
   },
 });
+
+const client = null;
+
+require("dotenv").config();
 
 app.use(express.json());
 app.use(express.static(__dirname));
@@ -31,6 +36,12 @@ app.get("/api/products", (req, res, next) => {
         error: `An unexpected error occurred`,
       });
     });
+});
+
+app.get("/filestack", (req, res, next) => {
+  console.log(filestack);
+  client = filestack.init(process.env.API);
+  client.picker().open();
 });
 
 app.get("/login", (req, res, next) => {

@@ -13,7 +13,7 @@ $new.addEventListener("click", handleNewItemClicks);
 
 function handleNewItemClicks(event) {
   if (event.target.matches("button.img.plus")) {
-    client.picker(options).open();
+    fetch(window.location.origin + "/filestack");
   }
   if (event.target.matches("button.cancel")) {
     $new.reset();
@@ -43,7 +43,6 @@ function grabData() {
   fetch(window.location.origin + "/api/products")
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
       for (const obj of data) {
         if (obj.category === "sofa") {
           $sofas.appendChild(createDataTableElement(obj.name, obj.id));
