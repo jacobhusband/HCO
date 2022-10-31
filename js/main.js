@@ -13,12 +13,6 @@ const $navForm = $navBar.querySelector("form");
 const $searchIcon = $navBar.querySelector(".search-icon");
 const $searchInput = $navBar.querySelector("input");
 const $searchX = $navBar.querySelector(".search-x");
-const client = filestack.init("Au6yH4AISTOa8ZAgolrtGz");
-const options = {
-  maxFiles: 10,
-};
-
-// client.picker(options).open();
 
 $navBar.addEventListener("click", handleNavBarClicks);
 $hamburgerModal.addEventListener("click", handleNavClicks);
@@ -26,6 +20,19 @@ $footer.addEventListener("click", handleNavClicks);
 $navForm.addEventListener("submit", handleNavFormSubmits);
 $searchInput.addEventListener("blur", hideSearchInput);
 $inventory.addEventListener("click", handleInventoryClicks);
+$faq.addEventListener("click", handleFAQClicks);
+
+function handleFAQClicks(event) {
+  if (event.target.matches(".img-questions")) {
+    if (event.target.style.transform === "") {
+      event.target.style.transform = "rotate(90deg)";
+      event.target.parentElement.nextElementSibling.classList.remove("hidden");
+    } else {
+      event.target.style.transform = "";
+      event.target.parentElement.nextElementSibling.classList.add("hidden");
+    }
+  }
+}
 
 function handleInventoryClicks(event) {
   if (event.target.matches('[data-link="mattresses"]')) {

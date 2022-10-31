@@ -11,25 +11,25 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/reset.css" />
-    <link rel="stylesheet" href="styles/layout.css" />
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="layout.css" />
+    <link rel="stylesheet" href="styles.css" />
     <title>HCO</title>
   </head>
   <body>
     <div class="container">
       <nav class="nav-bar row row-ud-center row-space-between">
-        <img class="hamburger-icon" src="images/hamburger.webp" alt="hamburger menu" />
+        <img class="hamburger-icon" src="hamburger.webp" alt="hamburger menu" />
         <form class="search-container row row-ud-center">
           <input class="hidden" type="text" name="search" />
           <a class="search-x hidden" href="#">X</a>
-          <img class="search-icon" src="images/search.webp" alt="search icon" />
+          <img class="search-icon" src="search.webp" alt="search icon" />
         </form>
       </nav>
     </div>
     <div class="container hidden" data-view="homepage">
       <div class="homepage-header text-align-center">
-        <img src="images/HCO.webp" alt="HCO logo" />
+        <img src="HCO.webp" alt="HCO logo" />
         <p>E-commerce furniture store in Orange County, California</p>
         <p>FREE DELIVERY to Orange County Residents</p>
         <p>Delivery to surrounding counties for a fee</p>
@@ -45,7 +45,7 @@
             <a href="#">See Inventory</a>
           </div>
           <div class="img-container">
-            <img src="images/couch-blue.webp" alt="couch blue" />
+            <img src="couch-blue.webp" alt="couch blue" />
           </div>
         </div>
         <div class="item-container">
@@ -54,7 +54,7 @@
             <a href="#">See Inventory</a>
           </div>
           <div class="img-container">
-            <img src="images/table-white.webp" alt="couch blue" />
+            <img src="table-white.webp" alt="couch blue" />
           </div>
         </div>
       </div>
@@ -76,7 +76,7 @@
     <div class="container hidden" data-view="about">
       <h1 class="text-align-center">About Us</h1>
       <div class="img-container">
-        <img src="images/truck-leaning.webp" alt="people leaning on truck" />
+        <img src="truck-leaning.webp" alt="people leaning on truck" />
       </div>
       <p>
         HCO Furniture is an online refurbished furniture store that offers couches, dining tables and mattresses. We serve Orange County and surrounding
@@ -84,14 +84,14 @@
         (weird/different I know). Our goal is to bring the highest quality, yet affordable furniture to our local community.
       </p>
       <div class="img-container">
-        <img src="images/truck-riding.webp" alt="people leaning on truck" />
+        <img src="truck-riding.webp" alt="people leaning on truck" />
       </div>
       <p>
         We strive to make the furniture sales process as easy and transparent as possible. All of our listings will show exactly what you will get with high
         quality photos and accompanying video tours.
       </p>
       <div class="img-container">
-        <img src="images/couch-staged.webp" alt="people leaning on truck" />
+        <img src="couch-staged.webp" alt="people leaning on truck" />
       </div>
       <p>
         In person tours of the furniture is also available so you can see and/or test before you buy! We also offer free delivery to all Orange County
@@ -100,17 +100,117 @@
       </p>
     </div>
     <div class="container hidden" data-view="faq">
-      <div class="row row-ud-center row-space-between">
-        <p>What types of sofas do you carry?</p>
-        <img src="images/arrow-head-right.webp" alt="arrow right" />
+      <h1 class="p-1 text-align-center">FAQ</h1>
+      <div class="row flex-col">
+        <div class="row row-ud-center row-space-between w-100 p-lr-1">
+          <p>Where do you get your couches?</p>
+          <img class="img-questions" src="arrow-head-right.webp" alt="arrow right" />
+        </div>
+        <p class="hidden bg-d b-1 p-1">
+          We source our inventory from our local community. We mostly get them from the same third party sites that we list our couches on, such as: Facebook
+          Marketplace, Craigslist, Offerup and Nextdoor. We also get them from trade ins from customers, facebook groups, furniture stores and more.
+        </p>
       </div>
-      <div class="row row-ud-center row-space-between">
-        <p>How do I know if delivery is free when there are so many locations in the world?</p>
-        <img src="images/arrow-head-right.webp" alt="arrow right" />
+      <div class="row flex-col">
+        <div class="row row-ud-center row-space-between w-100 p-lr-1">
+          <p>Do you re-upholster couches?</p>
+          <img class="img-questions" src="arrow-head-right.webp" alt="arrow right" />
+        </div>
+        <p class="hidden bg-d b-1 p-1">
+          We don't do full re-upholstery work for our couches, but we do light repair work on scuffs, cat scratch damage, burn holes, etc.
+        </p>
       </div>
-      <div class="row row-ud-center row-space-between">
-        <p>What types of sofas do you carry?</p>
-        <img src="images/arrow-head-right.webp" alt="arrow right" />
+      <div class="row flex-col">
+        <div class="row row-ud-center row-space-between w-100 p-lr-1">
+          <p>How does free delivery work?</p>
+          <img class="img-questions" src="arrow-head-right.webp" alt="arrow right" />
+        </div>
+        <p class="hidden bg-d b-1 p-1">
+          For ALL Orange County Residents, we offer free delivery for your purchased couch. We have everything we need to move your couch into your home safely.
+        </p>
+      </div>
+      <div class="row flex-col">
+        <div class="row row-ud-center row-space-between w-100 p-lr-1">
+          <p>Do you hold couches?</p>
+          <img class="img-questions" src="arrow-head-right.webp" alt="arrow right" />
+        </div>
+        <p class="hidden bg-d b-1 p-1">
+          We can hold couches for you, however, typically we do first come first serve. This is because without a security deposit there is no collateral on the
+          buyers side to uphold their end of the deal. It is an unwritten rule in third party websites that it is first come first serve but we can talk about a
+          security deposit if you want the item at a particular date.
+        </p>
+      </div>
+      <div class="row flex-col">
+        <div class="row row-ud-center row-space-between w-100 p-lr-1">
+          <p>Can you buy/take/move my old couch?</p>
+          <img class="img-questions" src="arrow-head-right.webp" alt="arrow right" />
+        </div>
+        <p class="hidden bg-d b-1 p-1">
+          We can! With every delivery we can move your old couch out of the way, FREE of charge. If you want us to move the couch to the garage, another room,
+          out of the way, or want us to take it off your hands, we can do that also. Only thing we would ask is if your couch is in dumpster shape. Please give
+          $20 for the dump fee and we can take it to the dump for you.
+        </p>
+      </div>
+      <div class="row flex-col">
+        <div class="row row-ud-center row-space-between w-100 p-lr-1">
+          <p>You say you "cleaned" and "sanitized" the couch. What does that mean?</p>
+          <img class="img-questions" src="arrow-head-right.webp" alt="arrow right" />
+        </div>
+        <p class="hidden bg-d b-1 p-1">
+          We have a five step cleaning process. It goes as follows: <br />
+          1. Spray (Cleaning Formula) <br />
+          2. Scrub (Drill Brush) <br />
+          3. Spot Treat (Tough Stains) <br />
+          4. Spray (Water) <br />
+          5. Suction (Shop Vac) <br />
+          We do this for all of our couches, regardless of condition they look so we clean and sanitize all of our couches.
+        </p>
+      </div>
+      <div class="row flex-col">
+        <div class="row row-ud-center row-space-between w-100 p-lr-1">
+          <p>Can I see the couch before I buy it?</p>
+          <img class="img-questions" src="arrow-head-right.webp" alt="arrow right" />
+        </div>
+        <p class="hidden bg-d b-1 p-1">
+          Absolutely! We encourage try before buy because we certainly don't want to sell you a couch you will be unhappy with. Reach out to schedule a showing
+          for the couch you want or to see multiple couches we can arrange that as well!
+        </p>
+      </div>
+      <div class="row flex-col">
+        <div class="row row-ud-center row-space-between w-100 p-lr-1">
+          <p>Do you have a store/showroom?</p>
+          <img class="img-questions" src="arrow-head-right.webp" alt="arrow right" />
+        </div>
+        <p class="hidden bg-d b-1 p-1">No store or showroom at the moment, but it is on the radar for the future.</p>
+      </div>
+      <div class="row flex-col">
+        <div class="row row-ud-center row-space-between w-100 p-lr-1">
+          <p>What payment methods do you accept?</p>
+          <img class="img-questions" src="arrow-head-right.webp" alt="arrow right" />
+        </div>
+        <p class="hidden bg-d b-1 p-1">
+          We currently accept cash, venmo, zelle and cash app as payments. We have plans to expand and do other payment apps and credit card payments.
+        </p>
+      </div>
+      <div class="row flex-col">
+        <div class="row row-ud-center row-space-between w-100 p-lr-1">
+          <p>I live outside of Orange County. Will you still deliver a couch to me?</p>
+          <img class="img-questions" src="arrow-head-right.webp" alt="arrow right" />
+        </div>
+        <p class="hidden bg-d b-1 p-1">
+          Yes! We definitely can deliver to counties surrounding Orange County. We highly encourage a showing beforehand or at least a video tour so you have a
+          good idea of what you are buying!
+        </p>
+      </div>
+      <div class="row flex-col">
+        <div class="row row-ud-center row-space-between w-100 p-lr-1">
+          <p>Is there a charge for customers who live outside of Orange County?</p>
+          <img class="img-questions" src="arrow-head-right.webp" alt="arrow right" />
+        </div>
+        <p class="hidden bg-d b-1 p-1">
+          Yes. We need to account for our time/gas/wear and tear on the truck. Depending on distance and time of travel the rate will vary. Let us know where
+          you are at and we can arrange a delivery price.
+        </p>
       </div>
     </div>
     <div class="container" data-view="inventory" data-subview="sofas">
@@ -124,9 +224,9 @@
         <div class="item sofa">
           <h2>Gray Three Seater Sofa</h2>
           <div class="img-container pos-rel">
-            <img src="images/couch-blue.webp" alt="blue couch" />
-            <img class="left pos-abs" src="images/arrow-head-right-circle.webp" alt="arrow" />
-            <img class="right pos-abs" src="images/arrow-head-right-circle.webp" alt="arrow" />
+            <img src="couch-blue.webp" alt="blue couch" />
+            <img class="left pos-abs" src="arrow-head-right-circle.webp" alt="arrow" />
+            <img class="right pos-abs" src="arrow-head-right-circle.webp" alt="arrow" />
             <div class="dots row pos-abs row-rl-center row-flex-end">
               <div class="dot filled"></div>
               <div class="dot"></div>
@@ -142,9 +242,9 @@
         <div class="item sofa">
           <h2>Gray Three Seater Sofa</h2>
           <div class="img-container pos-rel">
-            <img src="images/couch-blue.webp" alt="blue couch" />
-            <img class="left pos-abs" src="images/arrow-head-right-circle.webp" alt="arrow" />
-            <img class="right pos-abs" src="images/arrow-head-right-circle.webp" alt="arrow" />
+            <img src="couch-blue.webp" alt="blue couch" />
+            <img class="left pos-abs" src="arrow-head-right-circle.webp" alt="arrow" />
+            <img class="right pos-abs" src="arrow-head-right-circle.webp" alt="arrow" />
             <div class="dots row pos-abs row-rl-center row-flex-end">
               <div class="dot filled"></div>
               <div class="dot"></div>
@@ -164,7 +264,7 @@
       <div class="hamburger-menu">
         <div class="row">
           <div class="img-container">
-            <img src="images/HCO.webp" alt="HCO logo" />
+            <img src="HCO.webp" alt="HCO logo" />
           </div>
           <div class="hamburger-exit-container">
             <a class="hamburger-exit" href="#">X</a>
@@ -189,6 +289,6 @@
       <a data-link="reviews" href="#">Reviews</a>
     </nav>
     <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="main.js"></script>
   </body>
 </html>
