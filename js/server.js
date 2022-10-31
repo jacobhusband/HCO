@@ -16,10 +16,10 @@ app.use(express.static(path.join(__dirname, "../images")));
 
 app.get("/api/products", (req, res, next) => {
   const query = `
-    select products.name, products.description, products.price, products.date as date, json_agg(images.url) as url, min(products.category) as category
+    select products.name, products.description, products.price, products.date as date, json_agg(images.url) as url, min(products.category) as category, products.product_no as id
     from products
     join images on products.product_no = images.product_no
-    group by products.name, products.date, products.description, products.price;
+    group by products.name, products.date, products.description, products.price, products.product_no;
   `;
   db.query(query)
     .then((result) => {

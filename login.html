@@ -18,7 +18,7 @@
     <title>Login Page</title>
   </head>
   <body class="login">
-    <form class="login row flex-col hidden">
+    <form class="login row flex-col">
       <h1>LOGIN</h1>
       <label for="username">Username</label>
       <input type="text" name="username" id="username" />
@@ -26,7 +26,7 @@
       <input type="password" name="password" id="password" />
       <button>SUBMIT</button>
     </form>
-    <div class="admin panel col" data-view="sofas">
+    <div class="admin panel col hidden" data-view="sofas">
       <h1 class="text-align-center">ADMIN</h1>
       <div class="categories row row-ud-center row-space-between">
         <a data-link="sofas" class="" href="#">Sofas</a>
@@ -34,21 +34,9 @@
         <a data-link="tables" class="text-align-right" href="#">Tables</a>
       </div>
       <div class="content">
-        <div class="sofas">
-          <div class="item row shadow">
-            <p class="title col-three-fourth">Gray Three Seater Sofa</p>
-            <p class="date col-fourth text-align-right">10/20/22</p>
-            <p class="item delete col-eighth">X</p>
-          </div>
-        </div>
+        <div class="sofas"></div>
         <div class="mattresses hidden"></div>
-        <div class="tables hidden">
-          <div class="item row shadow">
-            <p class="title col-three-fourth">Gray Three Seater Sofa</p>
-            <p class="date col-fourth text-align-right">10/20/22</p>
-            <p class="item delete col-eighth">X</p>
-          </div>
-        </div>
+        <div class="tables hidden"></div>
       </div>
       <div class="add item row shadow row-rl-center">
         <p class="plus center">+</p>
@@ -64,7 +52,6 @@
       <input type="text" id="price" class="shadow" />
       <label for="images">Images</label>
       <button type="button" class="img plus shadow">+</button>
-      <input type="file" accept="image/*" onchange="handleImageUpload(event);" />
       <div class="options">
         <button class="save shadow">SAVE</button>
         <button type="button" class="cancel shadow">CANCEL</button>
