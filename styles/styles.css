@@ -164,7 +164,6 @@ a {
 
 [data-view="contact"],
 [data-view="about"],
-[data-view="faq"],
 .products {
   padding: 1rem 2rem 1rem 1.75rem;
 }
@@ -273,10 +272,6 @@ nav.footer {
 
 [data-view="faq"] img {
   width: 46px;
-}
-
-[data-view="faq"] p {
-  padding: 1rem 0;
 }
 
 .products > .item {
@@ -414,6 +409,10 @@ form.login button {
 .item.delete {
   margin-left: 1rem;
   color: red;
+}
+
+.img-questions:hover {
+  cursor: pointer;
 }
 
 .admin.panel > .categories {
@@ -557,10 +556,31 @@ form.login button {
   align-items: flex-end;
 }
 
+.w-100 {
+  width: 100%;
+}
+
+.p-lr-1 {
+  padding: 0 1rem;
+}
+
+.p-1 {
+  padding: 1rem;
+}
+
 .underline {
   text-decoration: underline;
   text-underline-offset: 2px;
   text-decoration-thickness: 0.5px;
+}
+
+.bg-d {
+  background-color: rgb(226, 226, 226);
+}
+
+.b-1 {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .shadow {

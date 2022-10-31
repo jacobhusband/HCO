@@ -20,6 +20,19 @@ $footer.addEventListener("click", handleNavClicks);
 $navForm.addEventListener("submit", handleNavFormSubmits);
 $searchInput.addEventListener("blur", hideSearchInput);
 $inventory.addEventListener("click", handleInventoryClicks);
+$faq.addEventListener("click", handleFAQClicks);
+
+function handleFAQClicks(event) {
+  if (event.target.matches(".img-questions")) {
+    if (event.target.style.transform === "") {
+      event.target.style.transform = "rotate(90deg)";
+      event.target.parentElement.nextElementSibling.classList.remove("hidden");
+    } else {
+      event.target.style.transform = "";
+      event.target.parentElement.nextElementSibling.classList.add("hidden");
+    }
+  }
+}
 
 function handleInventoryClicks(event) {
   if (event.target.matches('[data-link="mattresses"]')) {
