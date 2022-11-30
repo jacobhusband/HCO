@@ -23,6 +23,12 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 .nav-bar {
   background-color: #004AAD;
   padding: 0.6rem 1rem;
@@ -274,7 +280,7 @@ nav.footer {
   width: 46px;
 }
 
-.products > .item {
+.products .item {
   margin-bottom: 1.75rem;
 }
 
@@ -300,26 +306,6 @@ nav.footer {
 
 .item img.right {
   right: 5px;
-}
-
-.item .dots {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  gap: 0.35rem;
-  padding-bottom: 1rem;
-}
-
-.item .dot {
-  width: 0.75rem;
-  height: 0.75rem;
-  border: 1px solid white;
-  border-radius: 50%;
-}
-
-.item .dot.filled {
-  background-color: white;
 }
 
 .description > span.price {
@@ -522,6 +508,10 @@ form.login button {
 
 .hidden {
   display: none;
+}
+
+.filled {
+  background-color: black;
 }
 
 .margin-auto {

@@ -11,8 +11,10 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://kit.fontawesome.com/bcc0cc06ce.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="layout.css" />
+    <link rel="stylesheet" href="carousel.css" />
     <link rel="stylesheet" href="styles.css" />
     <title>HCO</title>
   </head>
@@ -221,42 +223,44 @@
         <a data-link="tables" class="text-align-right" href="#">Tables</a>
       </div>
       <div class="products">
-        <div class="item sofa">
-          <h2>Gray Three Seater Sofa</h2>
-          <div class="img-container pos-rel">
-            <img src="couch-blue.webp" alt="blue couch" />
-            <img class="left pos-abs" src="arrow-head-right-circle.webp" alt="arrow" />
-            <img class="right pos-abs" src="arrow-head-right-circle.webp" alt="arrow" />
-            <div class="dots row pos-abs row-rl-center row-flex-end">
-              <div class="dot filled"></div>
-              <div class="dot"></div>
-              <div class="dot"></div>
+        <ul class="sofas">
+          <li class="item sofa">
+            <h2>Gray Three Seater Sofa</h2>
+            <div class="img-container pos-rel">
+              <img src="couch-blue.webp" alt="blue couch" />
+              <img class="left pos-abs" src="arrow-head-right-circle.webp" alt="arrow" />
+              <img class="right pos-abs" src="arrow-head-right-circle.webp" alt="arrow" />
+              <div class="dots row pos-abs row-rl-center row-flex-end">
+                <div class="dot filled"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
             </div>
-          </div>
-          <div class="description">
-            <span class="price">$499</span>
-            <p class="text">Like new sofa with 100% cotten fabric along with 50/50 polyester linen pillows included.</p>
-            <a class="link" href="#">I want it</a>
-          </div>
-        </div>
-        <div class="item sofa">
-          <h2>Gray Three Seater Sofa</h2>
-          <div class="img-container pos-rel">
-            <img src="couch-blue.webp" alt="blue couch" />
-            <img class="left pos-abs" src="arrow-head-right-circle.webp" alt="arrow" />
-            <img class="right pos-abs" src="arrow-head-right-circle.webp" alt="arrow" />
-            <div class="dots row pos-abs row-rl-center row-flex-end">
-              <div class="dot filled"></div>
-              <div class="dot"></div>
-              <div class="dot"></div>
+            <div class="description">
+              <span class="price">$499</span>
+              <p class="text">Like new sofa with 100% cotten fabric along with 50/50 polyester linen pillows included.</p>
+              <a class="link" href="#">I want it</a>
             </div>
-          </div>
-          <div class="description">
-            <span class="price">$499</span>
-            <p class="text">Like new sofa with 100% cotten fabric along with 50/50 polyester linen pillows included.</p>
-            <a class="link" href="#">I want it</a>
-          </div>
-        </div>
+          </li>
+          <li class="item sofa">
+            <h2>Gray Three Seater Sofa</h2>
+            <div class="img-container pos-rel">
+              <img src="couch-blue.webp" alt="blue couch" />
+              <img class="left pos-abs" src="arrow-head-right-circle.webp" alt="arrow" />
+              <img class="right pos-abs" src="arrow-head-right-circle.webp" alt="arrow" />
+              <div class="dots row pos-abs row-rl-center row-flex-end">
+                <div class="dot filled"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+            </div>
+            <div class="description">
+              <span class="price">$499</span>
+              <p class="text">Like new sofa with 100% cotten fabric along with 50/50 polyester linen pillows included.</p>
+              <a class="link" href="#">I want it</a>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
     <div class="container hidden" data-view="reviews"></div>
@@ -288,7 +292,7 @@
       <a data-link="faq" href="#">FAQ</a>
       <a data-link="reviews" href="#">Reviews</a>
     </nav>
-    <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+    <script src="carousel.js"></script>
     <script src="main.js"></script>
   </body>
 </html>

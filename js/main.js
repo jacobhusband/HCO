@@ -13,6 +13,16 @@ const $navForm = $navBar.querySelector("form");
 const $searchIcon = $navBar.querySelector(".search-icon");
 const $searchInput = $navBar.querySelector("input");
 const $searchX = $navBar.querySelector(".search-x");
+const $sofas = $inventory.querySelector(".sofas");
+
+const urls = [
+  'https://www.livingspaces.com/globalassets/productassets/200000-299999/250000-259999/253000-253999/253100-253199/253180/253180_grey_fabric_reversible_sofa_chaise_signature_01.jpg?w=820&h=553&mode=pad',
+  'https://www.livingspaces.com/globalassets/productassets/200000-299999/250000-259999/253000-253999/253100-253199/253180/253180_grey_fabric_reversible_sofa_chaise_side_02.jpg?w=820&h=553&mode=pad',
+  'https://www.livingspaces.com/globalassets/productassets/200000-299999/250000-259999/253000-253999/253100-253199/253180/253180_grey_fabric_reversible_sofa_chaise_side_18.jpg?w=820&h=553&mode=pad',
+  'https://www.livingspaces.com/globalassets/productassets/200000-299999/250000-259999/253000-253999/253100-253199/253180/253180_grey_fabric_reversible_sofa_chaise_signature_01.jpg?w=820&h=553&mode=pad',
+  'https://www.livingspaces.com/globalassets/productassets/200000-299999/250000-259999/253000-253999/253100-253199/253180/253180_grey_fabric_reversible_sofa_chaise_side_02.jpg?w=820&h=553&mode=pad',
+  'https://www.livingspaces.com/globalassets/productassets/200000-299999/250000-259999/253000-253999/253100-253199/253180/253180_grey_fabric_reversible_sofa_chaise_side_18.jpg?w=820&h=553&mode=pad'
+]
 
 $navBar.addEventListener("click", handleNavBarClicks);
 $hamburgerModal.addEventListener("click", handleNavClicks);
@@ -21,6 +31,37 @@ $navForm.addEventListener("submit", handleNavFormSubmits);
 $searchInput.addEventListener("blur", hideSearchInput);
 $inventory.addEventListener("click", handleInventoryClicks);
 $faq.addEventListener("click", handleFAQClicks);
+
+loadInventory()
+
+function loadInventory() {
+  const li = buildLi('Gray Sofa', urls, 299, 'It is literally the best.');
+  $sofas.appendChild(li);
+}
+
+function buildLi(title, images, price, description) {
+  const carousel = new Carousel(images);
+  return buildElement('li', { class: 'item sofa' }, [
+    buildElement('h2', { textContent: title }),
+    carousel.$carousel,
+    buildElement('div', { class: 'description' }, [
+      buildElement('span', { class: 'price', textContent: `$${price}` }),
+      buildElement('p', { class: 'text', textContent: description }),
+      buildElement('a', { class: 'link', textContent: 'I want it' })
+    ])
+  ])
+}
+
+function buildElement(tag, attr, children) {
+  const el = document.createElement(tag);
+  for (var key in attr) (key === 'textContent')
+    ? el.textContent = attr[key]
+    : key.includes('dataset')
+      ? el.dataset[key.split('-')[1]] = attr[key]
+      : el.setAttribute(key, attr[key]);
+  if (children) children.forEach(child => (child) && el.appendChild(child));
+  return el;
+}
 
 function handleFAQClicks(event) {
   if (event.target.matches(".img-questions")) {

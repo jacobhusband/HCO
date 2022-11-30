@@ -62,7 +62,7 @@ function createDataTableElement(title, id) {
   return createElement("div", { class: "item row shadow", id: id }, [
     createElement("p", { class: "title col-three-fourth", text: title }),
     createElement("p", { class: "date col-fourth text-align-right", text: "10/20/22" }),
-    createElement("p", { class: "item delete col-eighth", text: "X" }),
+    createElement("button", { class: "item delete col-eighth", text: "X" }),
   ]);
 }
 
