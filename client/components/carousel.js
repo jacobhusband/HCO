@@ -1,4 +1,4 @@
-class Carousel {
+export default class Carousel {
   constructor(urls) {
     this.images = urls;
     this.id = 0;

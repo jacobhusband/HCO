@@ -1,8 +1,11 @@
+require("dotenv").config();
 const express = require("express");
 const pg = require("pg");
-const app = express();
+const ClientError = require('./client-error');
+const staticMiddleware = require('./static-middleware');
+const errorMiddleware = require('./error-middleware');
 const path = require("path");
-const filestack = require("filestack-js");
+
 const db = new pg.Pool({
   connectionString: "postgres://dev:dev@localhost/hco",
   ssl: {
@@ -10,14 +13,10 @@ const db = new pg.Pool({
   },
 });
 
-const client = null;
-
-require("dotenv").config();
+const app = express();
 
 app.use(express.json());
-app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, "../styles")));
-app.use(express.static(path.join(__dirname, "../images")));
+app.use(staticMiddleware);
 
 app.get("/api/products", (req, res, next) => {
   const query = `
@@ -38,12 +37,6 @@ app.get("/api/products", (req, res, next) => {
     });
 });
 
-app.get("/filestack", (req, res, next) => {
-  console.log(filestack);
-  client = filestack.init(process.env.API);
-  client.picker().open();
-});
-
 app.get("/login", (req, res, next) => {
   res.sendFile(path.join(__dirname, "../login.html"));
 });
@@ -56,6 +49,6 @@ app.post("/api/images", (req, res, next) => {
   console.log(req);
 });
 
-app.listen(3000, () => {
-  console.log("Server is running on port 3000");
+app.listen(process.env.PORT, () => {
+  console.log(`Server is running on port: ${process.env.PORT}`);
 });

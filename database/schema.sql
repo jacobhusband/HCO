@@ -16,6 +16,14 @@ create table images (
   url text not null
 );
 
+create table users (
+  user_no serial primary key,
+  email text unique not null
+);
+
+insert into users(email)
+values ('jakehusband2@gmail.com')
+
 insert into products(name, description, category, price)
 values ('Grey Sofa', 'Old and raggity sofa', 'sofa', 200),
        ('Blue Sofa', 'Nice and clean sofa', 'sofa', 300),

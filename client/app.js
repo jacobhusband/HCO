@@ -78,21 +78,11 @@ function handleFAQClicks(event) {
 function handleInventoryClicks(event) {
   if (event.target.matches('[data-link="mattresses"]')) {
     event.target.closest(".container").dataset.subview = "mattresses";
-    makeServerRequest();
   } else if (event.target.matches('[data-link="sofas"]')) {
     event.target.closest(".container").dataset.subview = "sofas";
   } else if (event.target.matches('[data-link="tables"]')) {
     event.target.closest(".container").dataset.subview = "tables";
   }
-}
-
-function makeServerRequest() {
-  const req = new XMLHttpRequest();
-  req.addEventListener("load", () => {
-    console.log(req.response);
-  });
-  req.open("GET", "http://localhost:3000/api/2");
-  req.send();
 }
 
 function handleNavBarClicks(event) {
