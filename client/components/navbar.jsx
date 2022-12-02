@@ -16,7 +16,6 @@ export default function Navbar() {
   let searchExitClassName;
 
   function handleClick(event) {
-    event.preventDefault();
     if (event.target.matches('img.hamburger-icon') ||
         event.target.matches('button.hamburger-button')) {
       setShowing(true);
@@ -26,8 +25,13 @@ export default function Navbar() {
               !event.target.matches('.menu.modal')) ||
                event.target.matches('a.menu-link')) {
       setClicked(false);
-    } else if (event.target.matches('button.search-button') ||
-               event.target.matches('img.search-icon')) {
+    }
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (event.target.matches('button.search-button') ||
+        event.target.matches('img.search-icon')) {
       setSearchClicked(true);
     } else if (event.target.matches('a.search-x')) {
       setSearchClicked(false);
@@ -83,11 +87,11 @@ export default function Navbar() {
           <button className="hamburger-button" onClick={handleClick}>
             <img className="hamburger-icon" src="/images/hamburger.webp" alt="hamburger menu" />
           </button>
-          <form onSubmit={handleClick} className="search-container row row-ud-center">
+          <form onSubmit={handleSubmit} className="search-container row row-ud-center">
             <input className={searchInputClassName} ref={inputReference} type="text" name="search" onBlur={handleSearchLosingFocus}/>
             <a className={searchExitClassName}>X</a>
             <button className='search-button'>
-              <img className="search-icon" onClick={handleClick} src="/images/search.webp" alt="search icon" style={searchIconStyle}/>
+              <img className="search-icon" onClick={handleSubmit} src="/images/search.webp" alt="search icon" style={searchIconStyle}/>
             </button>
           </form>
         </nav>
@@ -106,7 +110,7 @@ export default function Navbar() {
           <a onClick={handleClick} className='menu-link' href="#inventory">Inventory</a>
           <a onClick={handleClick} className='menu-link' href="#contact">Contact</a>
           <a onClick={handleClick} className='menu-link' href="#about">About</a>
-          <a onClick={handleClick} className='menu-link' href="#faq">Faq</a>
+          <a onClick={handleClick} className='menu-link' href="#faq">FAQ</a>
           <a onClick={handleClick} className='menu-link' href="#reviews">Reviews</a>
         </div>
       </div>

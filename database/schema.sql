@@ -1,5 +1,6 @@
 drop table if exists images;
 drop table if exists products;
+drop table if exists users;
 
 create table products (
   product_no serial primary key,

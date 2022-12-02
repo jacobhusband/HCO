@@ -1,6 +1,6 @@
 
 insert into users(email)
-values ('jakehusband2@gmail.com')
+values ('jakehusband2@gmail.com');
 
 insert into products(name, description, category, price)
 values ('Grey Sofa', 'Old and raggity sofa', 'sofa', 200),
