@@ -1,6 +1,6 @@
 
-insert into users(email)
-values ('jakehusband2@gmail.com');
+insert into users(email, hashedPassword)
+values ('jakehusband2@gmail.com', '$argon2id$v=19$m=65536,t=3,p=4$XgJOM6VaMbgHxRSoVJCEZA$NYBZTXmRGnIKTRqbPdpYrwsoQrjdemZzrPiazdUDN8I');
 
 insert into products(name, description, category, price)
 values ('Grey Sofa', 'Old and raggity sofa', 'sofa', 200),

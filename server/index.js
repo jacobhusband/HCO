@@ -1,6 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const pg = require("pg");
+const argon2 = require("argon2");
+const jwt = require("jsonwebtoken");
 const ClientError = require('./client-error');
 const staticMiddleware = require('./static-middleware');
 const errorMiddleware = require('./error-middleware');
@@ -29,13 +31,51 @@ app.get("/api/products", (req, res, next) => {
     .then((result) => {
       res.status(200).json(result.rows);
     })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).json({
-        error: `An unexpected error occurred`,
-      });
-    });
+    .catch(err => next(err));
 });
+
+app.post('/api/login', (req, res, next) => {
+  const { email, password } = req.body
+
+  if (!email || !password) {
+    throw new ClientError(401, 'invalid login');
+  }
+
+  const sql = `
+    select *
+    from "users"
+    where "email" = $1;
+  `;
+
+  const params = [email];
+
+  let results;
+
+  db.query(sql, params)
+    .then(result => {
+      results = result.rows[0];
+      return results.hashedpassword;
+    })
+    .then(hashedPassword => {
+      return argon2.verify(hashedPassword, password);
+    })
+    .then(isMatching => {
+      if (!isMatching) {
+        throw new ClientError(401, 'invalid login');
+      } else {
+        delete results.hashedpassword;
+        const token = jwt.sign(results, process.env.TOKEN_SECRET);
+        const responseObject = {
+          token,
+          payload: results
+        };
+        res.status(200).json(responseObject);
+      }
+    })
+    .catch(err => next(err));
+})
+
+app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port: ${process.env.PORT}`);

@@ -7,14 +7,19 @@ import Contact from './pages/contact';
 import About from './pages/about';
 import Faq from './pages/faq';
 import Inventory from './pages/inventory';
+import Login from './pages/login';
+import Admin from './pages/admin';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      route: parseRoute(window.location.hash)
+      route: parseRoute(window.location.hash),
+      checkedForLogin: false,
+      user: null,
     }
     this.renderPage = this.renderPage.bind(this);
+    this.checkForLogin = this.checkForLogin.bind(this);
   }
 
   componentDidMount() {
@@ -23,6 +28,14 @@ export default class App extends React.Component {
       this.setState({
         route
       });
+    });
+  this.checkForLogin();
+  }
+
+  checkForLogin() {
+    this.setState({
+      user: JSON.parse(localStorage.getItem('user')),
+      checkedForLogin: true
     });
   }
 
@@ -33,14 +46,28 @@ export default class App extends React.Component {
     else if (route.path === 'about') return <About/>;
     else if (route.path === 'faq') return <Faq/>;
     else if (route.path === 'inventory') return <Inventory/>;
+    else if (route.path === 'admin') return <Login/>;
+    else if (route.path === 'admin_panel') return <Admin user={this.state.user}/>;
   }
 
   render() {
+    if (!this.state.checkedForLogin) return;
+
+    const content =
+    (this.state.route.path === 'admin' ||
+     this.state.route.path === 'admin_panel')
+     ? this.renderPage()
+     : (
+        <>
+          <Navbar/>
+            {this.renderPage()}
+          <Footer/>
+        </>
+       )
+
     return (
       <>
-        <Navbar/>
-          {this.renderPage()}
-        <Footer/>
+        {content}
       </>
     )
   }

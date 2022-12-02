@@ -19,5 +19,6 @@ create table images (
 
 create table users (
   user_no serial primary key,
-  email text unique not null
+  email text unique not null,
+  hashedPassword text not null
 );

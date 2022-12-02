@@ -82,7 +82,7 @@ export default function Navbar() {
 
   return (
     <div>
-      <div className="container">
+      <div className="">
         <nav className="nav-bar row row-ud-center row-space-between">
           <button className="hamburger-button" onClick={handleClick}>
             <img className="hamburger-icon" src="/images/hamburger.webp" alt="hamburger menu" />
