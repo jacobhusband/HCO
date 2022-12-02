@@ -1,6 +1,8 @@
 require('dotenv/config');
 const path = require('path');
 const webpack = require('webpack');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+
 const clientPath = path.join(__dirname, 'client');
 const serverPublicPath = path.join(__dirname, 'server', 'public');
 
@@ -13,7 +15,7 @@ module.exports = {
     isDevelopment && 'webpack-hot-middleware/client?timeout=1000'
   ].filter(Boolean),
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js', '.jsx']
   },
   output: {
     path: serverPublicPath
@@ -21,7 +23,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -30,8 +32,8 @@ module.exports = {
               '@babel/preset-env'
             ],
             plugins: [
-              '@babel/plugin-transform-block-scoping',
-              '@babel/plugin-transform-arrow-functions'
+              '@babel/plugin-transform-react-jsx',
+              isDevelopment && 'react-refresh/babel'
             ].filter(Boolean)
           }
         }
@@ -49,6 +51,7 @@ module.exports = {
   devtool: isDevelopment ? 'cheap-module-source-map' : 'source-map',
   plugins: [
     new webpack.EnvironmentPlugin(['API']),
+    isDevelopment && new ReactRefreshWebpackPlugin(),
     isDevelopment && new webpack.NoEmitOnErrorsPlugin(),
     isDevelopment && new webpack.HotModuleReplacementPlugin()
   ].filter(Boolean)

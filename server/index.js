@@ -37,18 +37,6 @@ app.get("/api/products", (req, res, next) => {
     });
 });
 
-app.get("/login", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "../login.html"));
-});
-
-app.get("/", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "../index.html"));
-});
-
-app.post("/api/images", (req, res, next) => {
-  console.log(req);
-});
-
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port: ${process.env.PORT}`);
 });
