@@ -1,6 +1,15 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 export default function Inventory() {
+
+  const [inventory, setInventory] = useState(null);
+
+  useEffect(() => {
+    if(!inventory) {
+      console.log('hi')
+    }
+  })
+
   return (
     <div className="container" data-view="inventory" data-subview="sofas">
       <h1 className="text-align-center">Inventory</h1>

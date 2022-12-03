@@ -22,7 +22,20 @@ values (1, 'https://www.livingspaces.com/globalassets/productassets/200000-29999
        (4, 'https://www.livingspaces.com/globalassets/productassets/200000-299999/230000-239999/236000-236999/236300-236399/236309/236309_none_fabric_mattress_front_19.jpg?w=820&h=553&mode=pad'),
        (4, 'https://www.livingspaces.com/globalassets/productassets/200000-299999/230000-239999/236000-236999/236300-236399/236309/236309_multicolor_fabric_mattress_side_18.jpg?w=820&h=553&mode=pad');
 
-select products.name, products.description, products.price, products.date as date, json_agg(images.url) as url, min(products.category) as category
+select products.*, json_agg(images.url) as images
 from products
 join images on products.product_no = images.product_no
-group by products.name, products.date, products.description, products.price;
+group by products.product_no;
+
+with content as (
+  with data as (
+    select products.*, json_agg(images.url) as images
+    from products
+    join images on products.product_no = images.product_no
+    group by products.product_no
+  )
+  select data.category, to_jsonb(data.*) as data from data
+)
+select content.category, json_agg(content.data) as items
+from content
+group by content.category;

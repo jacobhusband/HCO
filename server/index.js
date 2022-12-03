@@ -22,10 +22,18 @@ app.use(staticMiddleware);
 
 app.get("/api/products", (req, res, next) => {
   const query = `
-    select products.name, products.description, products.price, products.date as date, json_agg(images.url) as url, min(products.category) as category, products.product_no as id
-    from products
-    join images on products.product_no = images.product_no
-    group by products.name, products.date, products.description, products.price, products.product_no;
+    with content as (
+      with data as (
+        select products.*, json_agg(images.url) as images
+        from products
+        join images on products.product_no = images.product_no
+        group by products.product_no
+      )
+      select data.category, to_jsonb(data.*) as data from data
+    )
+    select content.category, json_agg(content.data) as items
+    from content
+    group by content.category;
   `;
   db.query(query)
     .then((result) => {
