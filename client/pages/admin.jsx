@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import AdminContent from "../components/admin-content";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Button } from "react-bootstrap";
 
 export default function Admin(props) {
   const [inventory, setInventory] = useState(null);
@@ -18,7 +18,7 @@ export default function Admin(props) {
   const content = (inventory) && inventory.map((obj,index) => <AdminContent category={obj.category} items={obj.items} subview={view} key={index}/>);
 
   return (
-    <Container className="p-2 text-center" data-view={view}>
+    <div className="pt-2 text-center" data-view={view}>
       <h1>ADMIN</h1>
       <Row>
         <Col>
@@ -52,14 +52,16 @@ export default function Admin(props) {
           </a>
         </Col>
       </Row>
-      <div className="content">
+      <div>
         {content}
       </div>
-      <Container>
+      <div>
         <Row className="p-2 border border-dark m-2 add item flex row-rl-center">
-          <p className="m-0 plus center">+</p>
+          <Button variant="light" href="#new_entry">
+            <p className="m-0 plus center">+</p>
+          </Button>
         </Row>
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 }

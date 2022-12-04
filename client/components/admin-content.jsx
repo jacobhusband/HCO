@@ -10,8 +10,8 @@ export default function AdminContent(props) {
   : ' hidden';
 
   return (
-    <Container className={className}>
+    <div className={className}>
       {entries}
-    </Container>
+    </div>
   )
 }
