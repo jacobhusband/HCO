@@ -3,7 +3,7 @@ import Entry from "./entry";
 
 export default function Tables(props) {
   const tables = (props.tables)
-    ? props.tables.items.map(item => <Entry title={item.name} id={item.product_no} date={item.date.split('T')[0]}/>)
+    ? props.tables.items.map(item => <Entry title={item.name} key={item.product_no} id={item.product_no} date={item.date.split('T')[0]}/>)
     : null;
 
   return (

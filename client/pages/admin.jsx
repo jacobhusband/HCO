@@ -23,20 +23,20 @@ export default function Admin(props) {
   const tablesClassName = (view === "tables") ? "tables" : "tables hidden";
 
   return (
-    <div class="admin panel col" data-view={view}>
-      <h1 class="text-align-center">ADMIN</h1>
-      <div class="categories row row-ud-center row-space-between">
+    <div className="admin panel col" data-view={view}>
+      <h1 className="text-align-center">ADMIN</h1>
+      <div className="categories row row-ud-center row-space-between">
         <a data-link="sofas" onClick={() => {setView('sofas')}}>Sofas</a>
-        <a data-link="mattresses" onClick={() => {setView('mattresses')}} class="text-align-center">Mattresses</a>
-        <a data-link="tables" onClick={() => {setView('tables')}} class="text-align-right">Tables</a>
+        <a data-link="mattresses" onClick={() => {setView('mattresses')}} className="text-align-center">Mattresses</a>
+        <a data-link="tables" onClick={() => {setView('tables')}} className="text-align-right">Tables</a>
       </div>
-      <div class="content">
+      <div className="content">
         <Sofas sofas={sofas} className={sofasClassName}/>
         <Mattresses mattresses={mattresses} className={mattressesClassName}/>
         <Tables tables={tables} className={tablesClassName}/>
       </div>
-      <div class="add item row shadow row-rl-center">
-        <p class="plus center">+</p>
+      <div className="add item row shadow row-rl-center">
+        <p className="plus center">+</p>
       </div>
     </div>
   )
