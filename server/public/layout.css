@@ -1,7 +1,3 @@
-.container {
-  min-width: 360px;
-}
-
 .col {
   width: 100%;
 }
@@ -12,6 +8,14 @@
 
 .col-fourth {
   width: 25%;
+}
+
+.col-third {
+  width: 33%;
+}
+
+.col-two-thirds {
+  width: 66%;
 }
 
 .col-three-fourth {

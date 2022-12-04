@@ -38,7 +38,7 @@
   }
 }
 
-.modal {
+.modal-custom {
   position: fixed;
   top: 0;
   left: 0;
@@ -47,7 +47,7 @@
   z-index: 99;
 }
 
-.menu.modal {
+.menu.modal-custom {
   position: fixed;
   width: 12rem;
   background-color: rgb(255 255 255);
@@ -58,20 +58,20 @@
 
 }
 
-.menu.modal a {
+.menu.modal-custom a {
   font-size: 1.5rem;
 }
 
-.menu.modal img {
+.menu.modal-custom img {
   width: 100%;
 }
 
-.menu.modal .img-container {
+.menu.modal-custom .img-container {
   flex-basis: 70%;
   margin-bottom: 1rem;
 }
 
-.menu.modal .row > .hamburger-exit-container {
+.menu.modal-custom .flex > .hamburger-exit-container {
   flex-basis: 30%;
   text-align: right;
   margin: 0;

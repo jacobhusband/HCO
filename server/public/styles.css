@@ -17,16 +17,31 @@ textarea:focus {
 }
 
 a {
-  font-family: 'Source Sans Pro', sans-serif;
-  line-height: 1;
-  color: inherit;
-  text-decoration: none;
+  font-family: 'Source Sans Pro', sans-serif !important;
+  line-height: 1 !important;
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+span {
+  font-family: 'Playfair Display', serif;
 }
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+.homepage-title h1 {
+  margin-top: inherit !important;
+  margin-bottom: inherit !important;
+  font-weight: 600 !important;
+  line-height: inherit !important;
 }
 
 .nav-bar {
@@ -39,7 +54,7 @@ ul {
   position: absolute;
   right: 1.5rem;
   font-size: 1.5rem;
-  color: white;
+  color: white !important;
 }
 
 .nav-bar button {
@@ -74,6 +89,7 @@ form.login {
   font-size: 0.88rem;
   line-height: 2;
   font-weight: 600;
+  margin-bottom: 0 !important;
 }
 
 .homepage-header p:last-child {
@@ -98,14 +114,13 @@ form.login {
 
 [data-view="homepage"] > .content a,
 .description > a.link {
-  color:#004AAD;
+  color:#004AAD !important;
   font-size: 0.9rem;
   font-weight: 600;
   font-style: italic;
-  text-underline-offset: 0.32rem;
-  font-family: 'Playfair Display',
-    serif;
-  text-decoration: underline;
+  text-underline-offset: 0.32rem !important;
+  font-family: 'Playfair Display', serif !important;
+  text-decoration: underline !important;
 }
 
 [data-view="homepage"]>.content .item-header {
@@ -305,9 +320,9 @@ nav.footer {
 [data-subview="sofas"] [data-link="sofas"],
 [data-subview="mattresses"] [data-link="mattresses"],
 [data-subview="tables"] [data-link="tables"] {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  text-decoration-thickness: 0.5px;
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+  color: blue !important;
 }
 
 body.login {
