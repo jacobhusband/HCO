@@ -7,10 +7,10 @@ export default function QuestionAnswer(props) {
 
   if (open) {
     arrowStyle = {transform: `rotate(90deg)`}
-    answerClass = "bg-d b-1 p-1";
+    answerClass = "bg-d b-1 p-3";
   } else {
     arrowStyle = {transform: `rotate(0deg)`}
-    answerClass = "hidden bg-d b-1 p-1";
+    answerClass = "hidden bg-d b-1 p-3";
   }
 
   function handleClick(event) {
@@ -18,9 +18,9 @@ export default function QuestionAnswer(props) {
   }
 
   return (
-    <div className="row flex-col">
-      <div className="row row-ud-center row-space-between w-100 p-lr-1">
-        <p>{props.question}</p>
+    <div className="flex flex-col">
+      <div className="flex row-ud-center row-space-between w-100 p-lr-1">
+        <p style={{marginBottom: 0}}>{props.question}</p>
         <button onClick={handleClick} className='arrow'>
           <img className="img-questions" src="/images/arrow-head-right.webp" alt="arrow right" style={arrowStyle}/>
         </button>

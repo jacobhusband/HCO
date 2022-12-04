@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function ControlledCarousel(props) {
   const [index, setIndex] = useState(0);
@@ -9,29 +8,21 @@ export default function ControlledCarousel(props) {
     setIndex(selectedIndex);
   };
 
-  return (
-    <Carousel activeIndex={index} onSelect={handleSelect}>
-      <Carousel.Item>
+  const carouselItems = props.images.map((image,index) => {
+    return (
+      <Carousel.Item key={index}>
         <img
           className="d-block w-100"
-          src={props.images[0]}
+          src={image}
           alt="First slide"
         />
       </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={props.images[1]}
-          alt="Second slide"
-        />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={props.images[2]}
-          alt="Third slide"
-        />
-      </Carousel.Item>
+    )
+  })
+
+  return (
+    <Carousel activeIndex={index} onSelect={handleSelect}>
+      {carouselItems}
     </Carousel>
   );
 }

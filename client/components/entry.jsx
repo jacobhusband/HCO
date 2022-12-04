@@ -1,26 +1,33 @@
 import React from "react";
 import ControlledCarousel from "./carousel";
+import { Row, Col } from "react-bootstrap";
 
 export default function Entry(props) {
   if (props.admin) {
     return (
-    <div className="item row shadow" key={props.id}>
-      <p className="title col-two-thirds">{props.title}</p>
-      <p className="date col-third text-align-right">{props.date}</p>
-      <button className="item delete col-eighth">X</button>
-    </div>
+    <Row className="justify-content-center m-2 border border-dark" key={props.id}>
+      <Col className="d-flex align-items-center" xs={5}>
+        <p className="m-0 text-start">{props.title}</p>
+      </Col>
+      <Col className="d-flex align-items-center" xs={5}>
+        <p className="m-0 text-end">{props.date}</p>
+      </Col>
+      <Col xs={2}>
+        <button className="m-2 border border-dark">X</button>
+      </Col>
+    </Row>
   )
   } else {
     return (
-      <li className="item sofa">
+      <li className="list-unstyled mb-3">
         <h2>{props.title}</h2>
-        <div className="img-container pos-rel">
+        <div>
           <ControlledCarousel images={props.images}/>
         </div>
-        <div className="description">
-          <span className="price">${props.price}</span>
-          <p className="text">{props.description}</p>
-          <a className="link">I want it</a>
+        <div>
+          <span>${props.price}</span>
+          <p className="mb-0">{props.description}</p>
+          <a className="link-primary">I want it</a>
         </div>
       </li>
     )
