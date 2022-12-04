@@ -21,8 +21,8 @@ export default function Navbar() {
       setShowing(true);
       setClicked(true);
     } else if (event.target.matches('a.hamburger-exit') ||
-              (event.target.matches('.modal') &&
-              !event.target.matches('.menu.modal')) ||
+              (event.target.matches('.modal-custom') &&
+              !event.target.matches('.menu.modal-custom')) ||
                event.target.matches('a.menu-link')) {
       setClicked(false);
     }
@@ -43,7 +43,7 @@ export default function Navbar() {
   }
 
   function handleAnimation(event) {
-    if (event.target.matches('.modal.brighten')) setShowing(false);
+    if (event.target.matches('.modal-custom.brighten')) setShowing(false);
   }
 
   function handleSearchLosingFocus(event) {
@@ -52,14 +52,14 @@ export default function Navbar() {
   }
 
   if (clicked) {
-    modalClassName = 'modal darken';
-    menuModalClassName = 'menu modal slide-right';
+    modalClassName = 'modal-custom darken';
+    menuModalClassName = 'menu modal-custom slide-right';
   } else {
-    modalClassName = 'modal brighten';
-    menuModalClassName = 'menu modal slide-left';
+    modalClassName = 'modal-custom brighten';
+    menuModalClassName = 'menu modal-custom slide-left';
   }
 
-  if (!showing) modalClassName = 'modal hidden';
+  if (!showing) modalClassName = 'modal-custom hidden';
 
   if (searchClicked) {
     searchIconStyle = {transform: `translateX(-12.5rem)`};
@@ -82,12 +82,12 @@ export default function Navbar() {
 
   return (
     <div>
-      <div className="">
-        <nav className="nav-bar row row-ud-center row-space-between">
+      <div>
+        <nav className="nav-bar flex row-ud-center row-space-between">
           <button className="hamburger-button" onClick={handleClick}>
             <img className="hamburger-icon" src="/images/hamburger.webp" alt="hamburger menu" />
           </button>
-          <form onSubmit={handleSubmit} className="search-container row row-ud-center">
+          <form onSubmit={handleSubmit} className="search-container flex row-ud-center">
             <input className={searchInputClassName} ref={inputReference} type="text" name="search" onBlur={handleSearchLosingFocus}/>
             <a className={searchExitClassName}>X</a>
             <button className='search-button'>
@@ -98,7 +98,7 @@ export default function Navbar() {
       </div>
       <div onClick={handleClick} onAnimationEnd={handleAnimation} className={modalClassName}>
         <div className={menuModalClassName}>
-          <div className="row">
+          <div className="flex">
             <div className="img-container">
               <img src="/images/HCO.webp" alt="HCO logo" />
             </div>

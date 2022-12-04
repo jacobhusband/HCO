@@ -31,9 +31,9 @@ export default function Admin(props) {
         <a data-link="tables" onClick={() => {setView('tables')}} className="text-align-right">Tables</a>
       </div>
       <div className="content">
-        <Sofas sofas={sofas} className={sofasClassName}/>
-        <Mattresses mattresses={mattresses} className={mattressesClassName}/>
-        <Tables tables={tables} className={tablesClassName}/>
+        <Sofas sofas={sofas} className={sofasClassName} admin="true"/>
+        <Mattresses mattresses={mattresses} className={mattressesClassName} admin="true"/>
+        <Tables tables={tables} className={tablesClassName} admin="true"/>
       </div>
       <div className="add item row shadow row-rl-center">
         <p className="plus center">+</p>

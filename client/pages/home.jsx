@@ -4,7 +4,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="container" data-view="homepage">
+      <div data-view="homepage">
         <div className="homepage-header text-align-center">
           <img src="/images/HCO.webp" alt="HCO logo" />
           <p>E-commerce furniture store in Orange County, California</p>
