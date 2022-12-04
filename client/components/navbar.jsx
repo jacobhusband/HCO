@@ -62,7 +62,7 @@ export default function Navbar() {
   if (!showing) modalClassName = 'modal-custom hidden';
 
   if (searchClicked) {
-    searchIconStyle = {transform: `translateX(-12.5rem)`};
+    searchIconStyle = {transform: `translateX(-13.5rem)`};
     if (!showSearch) setTimeout(waitSearchAnimation, 400);
   } else {
     searchIconStyle = {transform: `translateX(0)`}

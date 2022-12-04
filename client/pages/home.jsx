@@ -17,18 +17,18 @@ export default function Home() {
         </div>
         <div className="content">
           <div className="item-container">
-            <div className="item-header row row-ud-center row-space-between">
+            <div className="item-header flex row-ud-center row-space-between">
               <h2>Couches | Sectionals | Recliners</h2>
-              <a href="#">See Inventory</a>
+              <a>See Inventory</a>
             </div>
             <div className="img-container">
               <img src="/images/couch-blue.webp" alt="couch blue" />
             </div>
           </div>
           <div className="item-container">
-            <div className="item-header row row-ud-center row-space-between">
+            <div className="item-header flex row-ud-center row-space-between">
               <h2>Dining Table Sets</h2>
-              <a href="#">See Inventory</a>
+              <a>See Inventory</a>
             </div>
             <div className="img-container">
               <img src="/images/table-white.webp" alt="couch blue" />
