@@ -1,14 +1,14 @@
 import React from 'react';
+import { Nav } from 'react-bootstrap';
 
 export default function Footer() {
   return (
-    <nav className="footer flex row-space-between">
-      <a data-link="homepage" href="#">Home</a>
-      <a data-link="inventory" href="#inventory">Inventory</a>
-      <a data-link="about" href="#about">About</a>
-      <a data-link="contact" href="#contact">Contact</a>
-      <a data-link="faq" href="#faq">FAQ</a>
-      <a data-link="reviews" href="#reviews">Reviews</a>
-    </nav>
+    <Nav className='justify-content-around bg-primary p-3 mt-auto'>
+      <a className='text-light text-decoration-none' data-link="homepage" href="#">Home</a>
+      <a className='text-light text-decoration-none' data-link="inventory" href="#inventory">Inventory</a>
+      <a className='text-light text-decoration-none' data-link="about" href="#about">About</a>
+      <a className='text-light text-decoration-none' data-link="contact" href="#contact">Contact</a>
+      <a className='text-light text-decoration-none' data-link="faq" href="#faq">FAQ</a>
+    </Nav>
   )
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Accordion } from 'react-bootstrap';
 import QuestionAnswer from '../components/question-answer';
 
 export default function Faq() {
@@ -32,9 +33,9 @@ export default function Faq() {
   ]
 
   return (
-    <div className="container" data-view="faq">
-      <h1 className="p-1 text-align-center">FAQ</h1>
-      {questions.map((question, index) => <QuestionAnswer key={index} question={question} answer={answers[index]}/>)}
+    <div data-view="faq">
+      <h1 className="text-center fw-bold m-3">FAQ</h1>
+      <Accordion>{questions.map((question, index) => <QuestionAnswer key={index} id={index} question={question} answer={answers[index]}/>)}</Accordion>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './pages/home';
 import parseRoute from './lib/parse-route';
-import Navbar from './components/navbar';
+import NavbarCustom from './components/navbar';
 import Footer from './components/footer';
 import Contact from './pages/contact';
 import About from './pages/about';
@@ -9,6 +9,11 @@ import Faq from './pages/faq';
 import Inventory from './pages/inventory';
 import Login from './pages/login';
 import Admin from './pages/admin';
+import NewEntry from './pages/new_entry';
+import '../server/public/reset.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../server/public/styles.scss';
+
 
 export default class App extends React.Component {
   constructor(props) {
@@ -41,13 +46,18 @@ export default class App extends React.Component {
 
   renderPage() {
     const { route } = this.state;
-    if (route.path === '') return <Home/>;
+    if (route.path === '' || route.path === 'home') return <Home/>;
     else if (route.path === 'contact') return <Contact/>;
     else if (route.path === 'about') return <About/>;
     else if (route.path === 'faq') return <Faq/>;
-    else if (route.path === 'inventory') return <Inventory/>;
+    else if (route.path === 'inventory') {
+      const key = route.params.keys().next().value
+      if (key) return <Inventory subview={key}/>
+      return <Inventory subview="sofas"/>;
+    }
     else if (route.path === 'admin') return <Login/>;
     else if (route.path === 'admin_panel') return <Admin user={this.state.user}/>;
+    else if (route.path === 'new_entry') return <NewEntry/>;
   }
 
   render() {
@@ -55,11 +65,12 @@ export default class App extends React.Component {
 
     const content =
     (this.state.route.path === 'admin' ||
-     this.state.route.path === 'admin_panel')
+     this.state.route.path === 'admin_panel' ||
+     this.state.route.path === 'new_entry')
      ? this.renderPage()
      : (
         <>
-          <Navbar/>
+          <NavbarCustom/>
             {this.renderPage()}
           <Footer/>
         </>

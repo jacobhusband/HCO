@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Form, Button, Container } from "react-bootstrap";
 import redirect from "../lib/redirect";
 
 export default function Login() {
@@ -25,19 +25,21 @@ export default function Login() {
   }
 
   return (
-    <Form className='login' onSubmit={handleEmail}>
-      <h1>LOGIN</h1>
-      <Form.Group controlId="email">
-        <Form.Label>Email</Form.Label>
-        <Form.Control autoComplete="current-email" type="email" placeholder="person@cox.net" />
-      </Form.Group>
-      <Form.Group controlId="password">
-        <Form.Label>Password</Form.Label>
-        <Form.Control autoComplete="current-password" type="password" placeholder="password" />
-      </Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
+    <Container>
+      <Form onSubmit={handleEmail}>
+        <h1 className="display-1 fw-bold text-center mt-3 mb-3">LOGIN</h1>
+        <Form.Group className="mb-2" controlId="email">
+          <Form.Label>Email</Form.Label>
+          <Form.Control autoComplete="current-email" type="email" placeholder="person@cox.net" />
+        </Form.Group>
+        <Form.Group controlId="password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control autoComplete="current-password" type="password" placeholder="password" />
+        </Form.Group>
+        <Button className="mt-2" variant="primary" type="submit">
+          Submit
+        </Button>
+      </Form>
+    </Container>
   )
 }
