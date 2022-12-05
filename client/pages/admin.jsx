@@ -18,50 +18,56 @@ export default function Admin(props) {
   const content = (inventory) && inventory.map((obj,index) => <AdminContent category={obj.category} items={obj.items} subview={view} key={index}/>);
 
   return (
-    <div className="pt-2 text-center" data-view={view}>
-      <h1>ADMIN</h1>
-      <Row>
-        <Col>
-          <a
-            data-link="sofas"
-            onClick={() => {
-              setView("sofas");
-            }}
-          >
-            Sofas
-          </a>
-        </Col>
-        <Col>
-          <a
-            data-link="mattresses"
-            onClick={() => {
-              setView("mattresses");
-            }}
-          >
-            Mattresses
-          </a>
-        </Col>
-        <Col>
-          <a
-            data-link="tables"
-            onClick={() => {
-              setView("tables");
-            }}
-          >
-            Tables
-          </a>
-        </Col>
-      </Row>
-      <div>
-        {content}
-      </div>
-      <div>
-        <Row className="p-2 border border-dark m-2 add item flex row-rl-center">
-          <Button variant="light" href="#new_entry">
-            <p className="m-0 plus center">+</p>
-          </Button>
+    <>
+      <Button className='position-absolute m-1' href="#home">Home</Button>
+      <Container className="pt-2 text-center" data-view={view}>
+        <h1>ADMIN</h1>
+        <Row>
+          <Col>
+            <a
+              role='button'
+              data-link="sofas"
+              onClick={() => {
+                setView("sofas");
+              }}
+            >
+              Sofas
+            </a>
+          </Col>
+          <Col>
+            <a
+              role='button'
+              data-link="mattresses"
+              onClick={() => {
+                setView("mattresses");
+              }}
+            >
+              Mattresses
+            </a>
+          </Col>
+          <Col>
+            <a
+              role='button'
+              data-link="tables"
+              onClick={() => {
+                setView("tables");
+              }}
+            >
+              Tables
+            </a>
+          </Col>
         </Row>
-      </div>
-    </div>
+        <div>
+          {content}
+        </div>
+        <div>
+          <Row className="p-2 border border-dark m-2 add item flex row-rl-center">
+            <Button variant="light" href="#new_entry">
+              <p className="m-0 plus center">+</p>
+            </Button>
+          </Row>
+        </div>
+      </Container>
+    </>
   );
 }

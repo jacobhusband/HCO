@@ -12,7 +12,7 @@ export default function Entry(props) {
       <Col className="d-flex align-items-center" xs={5}>
         <p className="m-0 text-end">{props.date}</p>
       </Col>
-      <Col xs={2}>
+      <Col xs={2} className='text-end'>
         <button className="m-2 border border-dark">X</button>
       </Col>
     </Row>

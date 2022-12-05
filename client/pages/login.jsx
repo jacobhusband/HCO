@@ -25,7 +25,7 @@ export default function Login() {
   }
 
   return (
-    <Container>
+    <Container className="login">
       <Form onSubmit={handleEmail}>
         <h1 className="display-1 fw-bold text-center mt-3 mb-3">LOGIN</h1>
         <Form.Group className="mb-2" controlId="email">
