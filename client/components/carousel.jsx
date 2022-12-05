@@ -12,7 +12,7 @@ export default function ControlledCarousel(props) {
     return (
       <Carousel.Item key={index}>
         <img
-          className="d-block w-100"
+          className="rounded d-block w-100"
           src={image}
           alt="First slide"
         />

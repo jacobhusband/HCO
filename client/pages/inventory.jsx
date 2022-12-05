@@ -58,7 +58,7 @@ export default function Inventory(props) {
             </Col>
           </Container>
         </Container>
-      <Container className="text-start">
+      <Container className="inventory text-start">
         {content}
       </Container>
     </div>

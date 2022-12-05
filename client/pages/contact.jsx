@@ -18,7 +18,11 @@ export default function Contact() {
           <Form.Label>Phone number</Form.Label>
           <Form.Control type="text" placeholder="888-888-8888" />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Form.Group className="mb-3" controlId="message">
+          <Form.Label>Message</Form.Label>
+          <Form.Control as="textarea" rows={4} placeholder="I am interested in..." />
+        </Form.Group>
+        <Button className="mb-3" variant="primary" type="submit">
           Submit
         </Button>
       </Form>

@@ -19,13 +19,12 @@ export default function Entry(props) {
   )
   } else {
     return (
-      <Col xs={12} md={6} lg={4} xl={3} className="mb-3">
+      <Col xs={12} md={6} lg={4} xl={3} className="mb-3 item">
         <h2>{props.title}</h2>
         <ControlledCarousel images={props.images}/>
         <div>
-          <span>${props.price}</span>
-          <p className="mb-0">{props.description}</p>
-          <a className="link-primary">I want it</a>
+          <p className="mb-2 mt-1"><span className="me-2">${props.price}</span>{props.description}</p>
+          <a role='button' className="link-primary fst-italic">I want it</a>
         </div>
       </Col>
     )
