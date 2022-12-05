@@ -19,17 +19,15 @@ export default function Entry(props) {
   )
   } else {
     return (
-      <li className="list-unstyled mb-3">
+      <Col xs={12} md={6} lg={4} xl={3} className="mb-3">
         <h2>{props.title}</h2>
-        <div>
-          <ControlledCarousel images={props.images}/>
-        </div>
+        <ControlledCarousel images={props.images}/>
         <div>
           <span>${props.price}</span>
           <p className="mb-0">{props.description}</p>
           <a className="link-primary">I want it</a>
         </div>
-      </li>
+      </Col>
     )
   }
 }

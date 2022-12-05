@@ -18,38 +18,46 @@ export default function Inventory(props) {
   return (
     <div className='text-center' data-view={view}>
       <h1 className="fw-bold m-3">Inventory</h1>
-      <Row className='bg-light p-2'>
-        <Col>
-          <a
-            data-link="sofas"
-            onClick={() => {
-              setView("sofas");
-            }}
-          >
-            Sofas
-          </a>
-        </Col>
-        <Col>
-          <a
-            data-link="mattresses"
-            onClick={() => {
-              setView("mattresses");
-            }}
-          >
-            Mattresses
-          </a>
-        </Col>
-        <Col>
-          <a
-            data-link="tables"
-            onClick={() => {
-              setView("tables");
-            }}
-          >
-            Tables
-          </a>
-        </Col>
-      </Row>
+        <Container fluid className='bg-light p-2'>
+          <Container className='d-flex p-2'>
+            <Col>
+              <a
+                className='h4 text-dark text-decoration-none'
+                role='button'
+                data-link="sofas"
+                onClick={() => {
+                  setView("sofas");
+                }}
+              >
+                Sofas
+              </a>
+            </Col>
+            <Col>
+              <a
+                className='h4 text-dark text-decoration-none'
+                role='button'
+                data-link="mattresses"
+                onClick={() => {
+                  setView("mattresses");
+                }}
+              >
+                Mattresses
+              </a>
+            </Col>
+            <Col>
+              <a
+                className='h4 text-dark text-decoration-none'
+                role='button'
+                data-link="tables"
+                onClick={() => {
+                  setView("tables");
+                }}
+              >
+                Tables
+              </a>
+            </Col>
+          </Container>
+        </Container>
       <Container className="text-start">
         {content}
       </Container>

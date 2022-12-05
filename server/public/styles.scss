@@ -1,177 +1,3 @@
-/*------------------------------------
-- COLOR primary
-------------------------------------*/
-
-$primary_t1: #004AAD;
-$primary_t2: #ffffffffffffffff347a;
-$primary_t3: #4c98ff;
-$primary_t4: #65a7ff;
-$primary_t5: #001532;
-$primary_t6: #002d6a;
-$primary_t7: #003a89;
-$primary_t8: #000000;
-$primary_t9: #7ab2ff;
-
-$primary_shadow: rgba(0, 74, 173, 0.5);
-$primary_text_color_dark_bright: #fff;
-
-
-.alert-primary {
-  color: $primary_t5;
-  background-color: $primary_t9;
-  border-color: $primary_t4;
-}
-
-.alert-primary hr {
-  border-top-color: $primary_t3;
-}
-
-.alert-primary .alert-link {
-  color: $primary_t8;
-}
-
-.badge-primary {
-  color: $primary_text_color_dark_bright;
-  background-color: $primary_t1;
-}
-
-.badge-primary[href]:hover,
-.badge-primary[href]:focus {
-  color: $primary_text_color_dark_bright;
-  background-color: $primary_t2;
-}
-
-.bg-primary {
-  background-color: $primary_t1  !important;
-}
-
-a.bg-primary:hover,
-a.bg-primary:focus,
-button.bg-primary:hover,
-button.bg-primary:focus {
-  background-color: $primary_t2  !important;
-}
-
-.border-primary {
-  border-color: $primary_t1  !important;
-}
-
-.btn-primary {
-  color: $primary_text_color_dark_bright;
-  background-color: $primary_t1;
-  border-color: $primary_t1;
-}
-
-.btn-primary:hover {
-  color: $primary_text_color_dark_bright;
-  background-color: $primary_t7;
-  border-color: $primary_t2;
-}
-
-.btn-primary:focus,
-.btn-primary.focus {
-  box-shadow: 0 0 0 0.2rem $primary_shadow;
-}
-
-.btn-primary.disabled,
-.btn-primary:disabled {
-  color: $primary_text_color_dark_bright;
-  background-color: $primary_t1;
-  border-color: $primary_t1;
-}
-
-.btn-primary:not(:disabled):not(.disabled):active,
-.btn-primary:not(:disabled):not(.disabled).active,
-.show>.btn-primary.dropdown-toggle {
-  color: $primary_text_color_dark_bright;
-  background-color: $primary_t2;
-  border-color: $primary_t6;
-}
-
-.btn-primary:not(:disabled):not(.disabled):active:focus,
-.btn-primary:not(:disabled):not(.disabled).active:focus,
-.show>.btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem $primary_shadow;
-}
-
-.btn-outline-primary {
-  color: $primary_t1;
-  background-color: transparent;
-  border-color: $primary_t1;
-}
-
-.btn-outline-primary:hover {
-  color: $primary_text_color_dark_bright;
-  background-color: $primary_t1;
-  border-color: $primary_t1;
-}
-
-.btn-outline-primary:focus,
-.btn-outline-primary.focus {
-  box-shadow: 0 0 0 0.2rem $primary_shadow;
-}
-
-.btn-outline-primary.disabled,
-.btn-outline-primary:disabled {
-  color: $primary_t1;
-  background-color: transparent;
-}
-
-.btn-outline-primary:not(:disabled):not(.disabled):active,
-.btn-outline-primary:not(:disabled):not(.disabled).active,
-.show>.btn-outline-primary.dropdown-toggle {
-  color: $primary_text_color_dark_bright;
-  background-color: $primary_t1;
-  border-color: $primary_t1;
-}
-
-.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
-.btn-outline-primary:not(:disabled):not(.disabled).active:focus,
-.show>.btn-outline-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem $primary_shadow;
-}
-
-.list-group-item-primary {
-  color: $primary_t5;
-  background-color: $primary_t4;
-}
-
-.list-group-item-primary.list-group-item-action:hover,
-.list-group-item-primary.list-group-item-action:focus {
-  color: $primary_t5;
-  background-color: $primary_t3;
-}
-
-.list-group-item-primary.list-group-item-action.active {
-  color: $primary_text_color_dark_bright;
-  background-color: $primary_t5;
-  border-color: $primary_t5;
-}
-
-.table-primary,
-.table-primary>th,
-.table-primary>td {
-  background-color: $primary_t4;
-}
-
-.table-hover .table-primary:hover {
-  background-color: $primary_t3;
-}
-
-.table-hover .table-primary:hover>td,
-.table-hover .table-primary:hover>th {
-  background-color: $primary_t3;
-}
-
-.text-primary {
-  color: $primary_t1  !important;
-}
-
-a.text-primary:hover,
-a.text-primary:focus {
-  color: $primary_t2  !important;
-}
-
 #root {
   min-height: 100vh;
   display: flex;
@@ -184,10 +10,83 @@ a.text-primary:focus {
   text-decoration: underline !important;
 }
 
+.navbar-nav img,
+.homepage img.header-img {
+  display: none;
+}
+
+.homepage > .container:first-child {
+  background-color: rgb(255, 252, 240);
+}
+
+.about img {
+  object-fit: cover;
+}
+
+.about.container,
+.faq.container,
+.contact.container,
+.footer.container,
+.header.container {
+  max-width: 768px !important;
+}
+
 .offcanvas {
   width: 200px !important;
 }
 
 .hidden {
   display: none;
+}
+
+@media only screen and (min-width: 576px) {
+  .navbar-nav img {
+    display: block;
+    left: 0;
+    width: 70px;
+  }
+
+  .homepage img.header-img {
+    display: block
+  }
+
+  .homepage>.container:first-child {
+    background: transparent;
+  }
+
+  .homepage img.logo {
+    display: none;
+  }
+
+  .homepage p.h5 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem !important;
+  }
+
+  .homepage h6,
+  .homepage a {
+    font-size: 1.25rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .homepage > .container:first-child p {
+    font-size: 1.25rem;
+  }
+
+  .homepage h6,
+  .homepage a {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .homepage>.container:first-child p {
+    font-size: 1.5rem;
+  }
+
+  .homepage h6,
+  .homepage a {
+    font-size: 1.25rem;
+  }
 }

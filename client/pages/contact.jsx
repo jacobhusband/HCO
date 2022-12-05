@@ -3,7 +3,7 @@ import { Form, Button, Container } from 'react-bootstrap';
 
 export default function Contact() {
   return (
-    <Container>
+    <Container className='contact'>
       <h1 className="fw-bold m-3 text-center">Contact</h1>
       <Form>
         <Form.Group className="mb-3" controlId="name">

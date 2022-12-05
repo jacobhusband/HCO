@@ -13,6 +13,7 @@ import NewEntry from './pages/new_entry';
 import '../server/public/reset.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../server/public/styles.scss';
+import '../server/public/primary.scss';
 
 
 export default class App extends React.Component {
@@ -68,6 +69,16 @@ export default class App extends React.Component {
      this.state.route.path === 'admin_panel' ||
      this.state.route.path === 'new_entry')
      ? this.renderPage()
+     : (this.state.route.path === 'home' ||
+        this.state.route.path === '' ||
+        this.state.route.path === 'inventory')
+     ? (
+        <>
+          <NavbarCustom width='full'/>
+            {this.renderPage()}
+          <Footer width='full'/>
+        </>
+       )
      : (
         <>
           <NavbarCustom/>
