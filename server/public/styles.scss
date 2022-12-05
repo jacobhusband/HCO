@@ -83,7 +83,7 @@
     font-size: 1.25rem;
   }
 
-  .col-md-6 {
+  .inventory .col-md-6 {
     width: 45%;
   }
 
@@ -102,7 +102,7 @@
     font-size: 1.5rem;
   }
 
-  .col-lg-4 {
+  .inventory .col-lg-4 {
     width: 30%;
   }
 
@@ -113,7 +113,7 @@
 }
 
 @media only screen and (min-width: 1200px) {
-  .col-xl-3 {
+  .inventory .col-xl-3 {
     width: 23%;
   }
 }
