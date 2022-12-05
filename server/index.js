@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 const ClientError = require('./client-error');
 const staticMiddleware = require('./static-middleware');
 const errorMiddleware = require('./error-middleware');
+const uploadsMiddleware = require('./uploads-middleware')
 const path = require("path");
 
 const db = new pg.Pool({
@@ -81,7 +82,22 @@ app.post('/api/login', (req, res, next) => {
       }
     })
     .catch(err => next(err));
-})
+});
+
+app.post('/api/uploads', uploadsMiddleware, (req, res, next) => {
+  const url = '/images/' + req.file.filename;
+  const sql = `
+    insert into "images" ("url", "product_no")
+    values ($1, $2)
+    returning *;
+  `;
+  const params = [url, 3];
+  db.query(sql, params)
+    .then(result => {
+      res.status(201).json(result.rows[0]);
+    })
+    .catch(err => next(err));
+});
 
 app.use(errorMiddleware);
 
