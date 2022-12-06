@@ -88,13 +88,14 @@ app.post('/api/login', (req, res, next) => {
 app.use(authorizationMiddleware);
 
 app.post('/api/uploads', uploadsMiddleware, (req, res, next) => {
+  const { productId } = req.body
   const url = '/images/' + req.file.filename;
   const sql = `
     insert into "images" ("url", "product_no")
     values ($1, $2)
     returning *;
   `;
-  const params = [url, 3];
+  const params = [url, productId];
   db.query(sql, params)
     .then(result => {
       res.status(201).json(result.rows[0]);
@@ -118,7 +119,7 @@ app.post('/api/products', uploadsMiddleware, (req, res, next) => {
   const params = [title, description, category, price];
 
   db.query(sql, params)
-    .then(result => res.json(result.rows))
+    .then(result => res.json(result.rows[0]))
     .catch(err => next(err));
 })
 
