@@ -7,6 +7,7 @@ const ClientError = require('./client-error');
 const staticMiddleware = require('./static-middleware');
 const errorMiddleware = require('./error-middleware');
 const uploadsMiddleware = require('./uploads-middleware')
+const authorizationMiddleware = require('./authorization-middleware')
 const path = require("path");
 
 const db = new pg.Pool({
@@ -84,6 +85,8 @@ app.post('/api/login', (req, res, next) => {
     .catch(err => next(err));
 });
 
+app.use(authorizationMiddleware);
+
 app.post('/api/uploads', uploadsMiddleware, (req, res, next) => {
   const url = '/images/' + req.file.filename;
   const sql = `
@@ -98,6 +101,26 @@ app.post('/api/uploads', uploadsMiddleware, (req, res, next) => {
     })
     .catch(err => next(err));
 });
+
+app.post('/api/products', uploadsMiddleware, (req, res, next) => {
+  const { price, description, title, category } = req.body;
+
+  if (!price || !description || !title) {
+    throw new ClientError(400, 'Try sending a non-falsy price, description, and title');
+  }
+
+  const sql = `
+    insert into "products" (name, description, category, price)
+    values ($1, $2, $3, $4)
+    returning *;
+  `
+
+  const params = [title, description, category, price];
+
+  db.query(sql, params)
+    .then(result => res.json(result.rows))
+    .catch(err => next(err));
+})
 
 app.use(errorMiddleware);
 

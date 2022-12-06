@@ -62,7 +62,7 @@ export default function Admin(props) {
         </div>
         <div>
           <Row className="p-2 border border-dark m-2 add item flex row-rl-center">
-            <Button variant="light" href="#new_entry">
+            <Button variant="light" href={`#new_entry?${view}`}>
               <p className="m-0 plus center">+</p>
             </Button>
           </Row>
