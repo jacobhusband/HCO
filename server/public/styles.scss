@@ -15,6 +15,12 @@
   display: none;
 }
 
+.inventory.container a.link-primary {
+  right: 0;
+  bottom: 0;
+  margin: 0.4rem 0.75rem;
+}
+
 .homepage > .container:first-child {
   background-color: rgb(255, 252, 240);
 }
@@ -108,7 +114,7 @@
 
   .homepage h6,
   .homepage a {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 }
 

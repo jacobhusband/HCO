@@ -10,9 +10,9 @@ export default function ControlledCarousel(props) {
 
   const carouselItems = props.images.map((image,index) => {
     return (
-      <Carousel.Item key={index}>
+      <Carousel.Item key={index} className='ratio ratio-4x3'>
         <img
-          className="rounded d-block w-100"
+          className="rounded d-block w-100 img-fluid"
           src={image}
           alt="First slide"
         />
