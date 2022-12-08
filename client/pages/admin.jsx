@@ -15,7 +15,11 @@ export default function Admin(props) {
         });
   });
 
-  const content = (inventory) && inventory.map((obj,index) => <AdminContent category={obj.category} items={obj.items} subview={view} key={index}/>);
+  function removeProduct(event) {
+    console.log(event.target.id);
+  }
+
+  const content = (inventory) && inventory.map((obj,index) => <AdminContent category={obj.category} items={obj.items} subview={view} key={index} removeProduct={removeProduct}/>);
 
   return (
     <>
