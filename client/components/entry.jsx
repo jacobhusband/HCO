@@ -4,6 +4,7 @@ import { Row, Col } from "react-bootstrap";
 
 export default function Entry(props) {
   if (props.admin) {
+    if (props.removedInventory.includes((props.id).toString())) return null;
     return (
     <Row className="justify-content-center m-2 border border-dark" key={props.id}>
       <Col className="d-flex align-items-center" xs={5}>
