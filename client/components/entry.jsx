@@ -4,6 +4,7 @@ import { Row, Col } from "react-bootstrap";
 
 export default function Entry(props) {
   if (props.admin) {
+    if (props.removedInventory.includes((props.id).toString())) return null;
     return (
     <Row className="justify-content-center m-2 border border-dark" key={props.id}>
       <Col className="d-flex align-items-center" xs={5}>
@@ -13,7 +14,7 @@ export default function Entry(props) {
         <p className="m-0 text-end">{props.date}</p>
       </Col>
       <Col xs={2} className='text-end'>
-        <button className="m-2 border border-dark">X</button>
+        <button id={props.id} onClick={props.removeProduct} className="m-2 border border-dark">X</button>
       </Col>
     </Row>
   )

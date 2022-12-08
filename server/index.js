@@ -103,7 +103,7 @@ app.post('/api/uploads', uploadsMiddleware, (req, res, next) => {
     .catch(err => next(err));
 });
 
-app.post('/api/products', uploadsMiddleware, (req, res, next) => {
+app.post('/api/products', (req, res, next) => {
   const { price, description, title, category } = req.body;
 
   if (!price || !description || !title) {
@@ -120,6 +120,26 @@ app.post('/api/products', uploadsMiddleware, (req, res, next) => {
 
   db.query(sql, params)
     .then(result => res.json(result.rows[0]))
+    .catch(err => next(err));
+})
+
+app.delete('/api/products', (req, res, next) => {
+  console.log('REQUEST BODY: ', req.body)
+  const { product_no } = req.body;
+
+  if (!product_no) {
+    throw new ClientError(400, 'Missing a product number')
+  }
+
+  const sql = `
+    delete from products
+    where product_no = $1;
+  `
+
+  const params = [product_no];
+
+  db.query(sql, params)
+    .then(result => res.sendStatus(200))
     .catch(err => next(err));
 })
 
