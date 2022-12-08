@@ -55,7 +55,7 @@ module.exports = {
   stats: 'minimal',
   devtool: isDevelopment ? 'cheap-module-source-map' : 'source-map',
   plugins: [
-    new webpack.EnvironmentPlugin(['EMAIL_PASSWORD', 'TARGET_EMAIL']),
+    new webpack.EnvironmentPlugin(['TARGET_EMAIL', 'SMTP_USERNAME', 'SMTP_PASSWORD', 'SMTP_SERVER', 'SMTP_PORT']),
     isDevelopment && new ReactRefreshWebpackPlugin(),
     isDevelopment && new webpack.NoEmitOnErrorsPlugin(),
     isDevelopment && new webpack.HotModuleReplacementPlugin()
