@@ -9,7 +9,7 @@ export default function Contact(props) {
       <Form.Group className="mb-3" controlId='product'>
         <Form.Label>Desired Item</Form.Label>
         <Form.Control type="hidden" value={`
-        Title: ${params.title}
+        Title: ${params.title} <br/>
         Product_no: ${params.id}
         `} readOnly/>
         <h5>{params.title}</h5>
@@ -28,11 +28,11 @@ export default function Contact(props) {
         From : process.env.TARGET_EMAIL,
         Subject : `${name.value} is trying to contact you about furniture`,
         Body : `
-        Name: ${name.value}
-        Email: ${email.value}
-        Phone Number: ${phone.value}
-        Product Details: ${product}
-        Message: ${message}
+        Name: ${name.value} <br/>
+        Email: ${email.value} <br/>
+        Phone Number: ${phone.value} <br/>
+        ${product.value} <br/>
+        Message: ${message.value} <br/>
         `
     }).then(
       message => alert(message)
