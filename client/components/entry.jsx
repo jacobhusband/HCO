@@ -3,6 +3,13 @@ import ControlledCarousel from "./carousel";
 import { Row, Col } from "react-bootstrap";
 
 export default function Entry(props) {
+
+  function handlePageSwap(event) {
+    const {id, title} = event.target
+    console.log(id, title)
+    window.location.hash = `#contact?id=${id}&title=${title}`;
+  }
+
   if (props.admin) {
     if (props.removedInventory.includes((props.id).toString())) return null;
     return (
@@ -24,7 +31,7 @@ export default function Entry(props) {
         <h2>{props.title}</h2>
         <ControlledCarousel images={props.images}/>
         <p className="mt-1 mb-4"><span className="me-2">${props.price}</span>{props.description}</p>
-        <a role='button' className="link-primary fst-italic position-absolute">I want it</a>
+        <a role='button' className="link-primary fst-italic position-absolute" id={props.product_no} title={props.title} onClick={handlePageSwap}>I want it</a>
       </Col>
     )
   }

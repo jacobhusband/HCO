@@ -48,7 +48,12 @@ export default class App extends React.Component {
   renderPage() {
     const { route } = this.state;
     if (route.path === '' || route.path === 'home') return <Home/>;
-    else if (route.path === 'contact') return <Contact/>;
+    else if (route.path === 'contact') {
+      const params = {};
+      for (const [key, value] of route.params.entries()) params[key] = value;
+      if (Object.keys(params).length) return <Contact params={params}/>
+      return <Contact/>;
+    }
     else if (route.path === 'about') return <About/>;
     else if (route.path === 'faq') return <Faq/>;
     else if (route.path === 'inventory') {
