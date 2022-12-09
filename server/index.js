@@ -184,6 +184,28 @@ app.delete('/api/image/:id', (req, res, next) => {
     .catch(err => next(err))
 })
 
+app.put('/api/product/:id', (req, res, next) => {
+  const { id } = req.params;
+  const { name, description, price } = req.body;
+
+  if (!id) {
+    throw new ClientError(400, 'Send an id in the path');
+  }
+
+  const sql = `
+    update products
+    set name = $1, description = $2, price = $3
+    where product_no = $4
+    returning *;
+  `
+
+  const params = [name, description, price, id];
+
+  db.query(sql, params)
+    .then(result => res.json(result.rows[0]))
+    .catch(err => next(err));
+})
+
 app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {
