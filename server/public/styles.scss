@@ -10,10 +10,16 @@
   text-decoration: underline !important;
 }
 
-.admin-panel button {
+.admin-panel button,
+.edit-entry button.icon {
   background: transparent;
   border: none !important;
   padding: 0 !important;
+}
+
+.edit-entry button.icon {
+  top: 0.25rem;
+  right: 1.35rem;
 }
 
 .admin-panel a {

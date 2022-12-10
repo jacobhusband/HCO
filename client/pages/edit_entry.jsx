@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Form, Button, Container } from "react-bootstrap";
+import { Form, Button, Container, Col, Row } from "react-bootstrap";
 
 export default function EditEntry(props) {
   let title, description, price, images;
@@ -11,6 +11,14 @@ export default function EditEntry(props) {
     title = info.name;
     description = info.description;
     price = info.price;
+    images = info.images.map((url, ind) => {
+      return (
+        <Col xs={4} className="img-container position-relative">
+          <button id={info.image_ids[ind]} className="position-absolute icon"><i id={info.image_ids[ind]} className="fa-solid fa-times"></i></button>
+          <img className="img-fluid" src={url}/>
+        </Col>
+      )
+    })
   }
 
   const fileRef = useRef();
@@ -42,6 +50,12 @@ export default function EditEntry(props) {
               <span className="input-group-text">.00</span>
             </div>
           </div>
+        </Form.Group>
+        <Form.Group controlId="oldFiles" className="mb-3">
+          <Form.Label>Remove old images</Form.Label>
+          <Row className="imgs-container">
+            {images}
+          </Row>
         </Form.Group>
         <Form.Group controlId="files" className="mb-3">
           <Form.Label>Upload new images</Form.Label>
