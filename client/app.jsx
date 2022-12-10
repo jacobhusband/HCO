@@ -10,6 +10,7 @@ import Inventory from './pages/inventory';
 import Login from './pages/login';
 import Admin from './pages/admin';
 import NewEntry from './pages/new_entry';
+import EditEntry from './pages/edit_entry';
 import '../server/public/reset.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../server/public/styles.scss';
@@ -23,9 +24,11 @@ export default class App extends React.Component {
       route: parseRoute(window.location.hash),
       checkedForLogin: false,
       user: null,
+      editInfo: null,
     }
     this.renderPage = this.renderPage.bind(this);
     this.checkForLogin = this.checkForLogin.bind(this);
+    this.changeEditInfo = this.changeEditInfo.bind(this);
   }
 
   componentDidMount() {
@@ -36,6 +39,12 @@ export default class App extends React.Component {
       });
     });
   this.checkForLogin();
+  }
+
+  changeEditInfo(info) {
+    this.setState({
+      editInfo: info
+    })
   }
 
   checkForLogin() {
@@ -62,8 +71,9 @@ export default class App extends React.Component {
       return <Inventory subview="sofas"/>;
     }
     else if (route.path === 'admin') return <Login/>;
-    else if (route.path === 'admin_panel') return <Admin user={this.state.user}/>;
+    else if (route.path === 'admin_panel') return <Admin user={this.state.user} changeEditInfo={this.changeEditInfo}/>;
     else if (route.path === 'new_entry') return <NewEntry/>;
+    else if (route.path === 'edit_entry') return <EditEntry info={this.state.editInfo}/>;
   }
 
   render() {
@@ -72,7 +82,8 @@ export default class App extends React.Component {
     const content =
     (this.state.route.path === 'admin' ||
      this.state.route.path === 'admin_panel' ||
-     this.state.route.path === 'new_entry')
+     this.state.route.path === 'new_entry' ||
+     this.state.route.path === 'edit_entry')
      ? this.renderPage()
      : (this.state.route.path === 'home' ||
         this.state.route.path === '' ||

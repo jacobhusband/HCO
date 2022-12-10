@@ -27,6 +27,18 @@ export default function Admin(props) {
     setDeleteModalShow(true);
   }
 
+  function editInventory(event) {
+    fetch(`/api/product/${event.target.id}`, {
+      headers: {
+        'X-Access-Token': props.user.token,
+      }
+    }).then(result => result.json())
+      .then(result => {
+        props.changeEditInfo(result);
+        window.location.hash = '#edit_entry'
+      }).catch(err => console.log(err));
+  }
+
   function continueRemovingProduct(event) {
     let tempInventory;
     const token = JSON.parse(localStorage.getItem('user')).token;
@@ -45,7 +57,7 @@ export default function Admin(props) {
     }).catch(err => console.log(err));
   }
 
-  const content = (inventory) && inventory.map((obj,index) => <AdminContent category={obj.category} items={obj.items} subview={view} key={index} removeProduct={removeProduct} removedInventory={removedInventory}/>);
+  const content = (inventory) && inventory.map((obj,index) => <AdminContent category={obj.category} items={obj.items} subview={view} key={index} removeProduct={removeProduct} removedInventory={removedInventory} editInventory={editInventory}/>);
 
   return (
     <>
