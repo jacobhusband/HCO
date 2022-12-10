@@ -1,11 +1,15 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Form, Button, Container, Col, Row } from "react-bootstrap";
+import DeleteModal from "../components/delete-modal";
 
 export default function EditEntry(props) {
   let title, description, price, images;
 
+  const [deleteModalShow, setDeleteModalShow] = useState(false);
+  const [selectedId, setSelectedId] = useState(null);
+  const handleDeleteModalClose = () => setDeleteModalShow(false);
+
   const {info} = props;
-  console.log(info)
 
   if (info) {
     title = info.name;
@@ -13,8 +17,8 @@ export default function EditEntry(props) {
     price = info.price;
     images = info.images.map((url, ind) => {
       return (
-        <Col xs={4} className="img-container position-relative">
-          <button id={info.image_ids[ind]} className="position-absolute icon"><i id={info.image_ids[ind]} className="fa-solid fa-times"></i></button>
+        <Col xs={4} className="img-container position-relative" key={info.image_ids[ind]}>
+          <Button id={info.image_ids[ind]} className="text-dark position-absolute icon" onClick={removeImage}><i id={info.image_ids[ind]} className="fa-solid fa-times"></i></Button>
           <img className="img-fluid" src={url}/>
         </Col>
       )
@@ -23,12 +27,25 @@ export default function EditEntry(props) {
 
   const fileRef = useRef();
 
-  function handleSubmit() {}
+  function handleSubmit(event) {}
 
-  function cancelEditEntry() {}
+  function removeImage(event) {
+    const {id} = event.target;
+    setSelectedId(id);
+    setDeleteModalShow(true);
+  }
+
+  function cancelEditEntry(event) {
+    window.location.hash = '#admin_panel'
+  }
+
+  function continueRemovingImage(event) {
+    console.log(event.target)
+  }
 
   return (
-    <Container className="mt-2 edit-entry">
+    <>
+      <Container className="mt-2 edit-entry">
       <h1 className="mb-3">Edit Entry</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="title">
@@ -65,5 +82,11 @@ export default function EditEntry(props) {
         <Button variant="secondary" onClick={cancelEditEntry}>Cancel</Button>
       </Form>
     </Container>
+    <DeleteModal
+      show={deleteModalShow}
+      onHide={handleDeleteModalClose}
+      onSubmit={continueRemovingImage}
+    />
+    </>
   )
 }
