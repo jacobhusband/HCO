@@ -49,8 +49,8 @@ export default function Admin(props) {
 
   return (
     <>
-      <Button className='position-absolute m-1' href="#home">Home</Button>
-      <Container className="pt-2 text-center" data-view={view}>
+      <Button className='position-absolute m-1 admin-panel-home' href="#home">Home</Button>
+      <Container className="pt-2 text-center admin-panel" data-view={view}>
         <h1>ADMIN</h1>
         <Row>
           <Col>
@@ -91,7 +91,7 @@ export default function Admin(props) {
           {content}
         </div>
         <div>
-          <Row className="p-2 border border-dark m-2 add item flex row-rl-center">
+          <Row className="border border-dark m-2 add item flex row-rl-center rounded">
             <Button variant="light" href={`#new_entry?${view}`}>
               <p className="m-0 plus center">+</p>
             </Button>

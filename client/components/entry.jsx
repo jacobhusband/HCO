@@ -13,15 +13,16 @@ export default function Entry(props) {
   if (props.admin) {
     if (props.removedInventory.includes((props.id).toString())) return null;
     return (
-    <Row className="justify-content-center m-2 border border-dark" key={props.id}>
+    <Row className="justify-content-center m-2 border border-dark rounded" key={props.id}>
       <Col className="d-flex align-items-center" xs={5}>
         <p className="m-0 text-start">{props.title}</p>
       </Col>
-      <Col className="d-flex align-items-center" xs={5}>
+      <Col className="d-flex align-items-center" xs={4}>
         <p className="m-0 text-end">{props.date}</p>
       </Col>
-      <Col xs={2} className='text-end'>
-        <button id={props.id} onClick={props.removeProduct} className="m-2 border border-dark">X</button>
+      <Col xs={3} className='text-end'>
+        <button id={props.id} onClick={props.editProduct} className="m-1 text-primary"><i className="fa-solid fa-pen"></i></button>
+        <button id={props.id} onClick={props.removeProduct} className="m-1 text-danger"><i className="fa-solid fa-xmark fa-xl"></i></button>
       </Col>
     </Row>
   )
