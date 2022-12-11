@@ -27,6 +27,18 @@ export default function Admin(props) {
     setDeleteModalShow(true);
   }
 
+  function editInventory(event) {
+    fetch(`/api/product/${event.target.id}`, {
+      headers: {
+        'X-Access-Token': props.user.token,
+      }
+    }).then(result => result.json())
+      .then(result => {
+        props.changeEditInfo(result);
+        window.location.hash = '#edit_entry'
+      }).catch(err => console.log(err));
+  }
+
   function continueRemovingProduct(event) {
     let tempInventory;
     const token = JSON.parse(localStorage.getItem('user')).token;
@@ -45,12 +57,12 @@ export default function Admin(props) {
     }).catch(err => console.log(err));
   }
 
-  const content = (inventory) && inventory.map((obj,index) => <AdminContent category={obj.category} items={obj.items} subview={view} key={index} removeProduct={removeProduct} removedInventory={removedInventory}/>);
+  const content = (inventory) && inventory.map((obj,index) => <AdminContent category={obj.category} items={obj.items} subview={view} key={index} removeProduct={removeProduct} removedInventory={removedInventory} editInventory={editInventory}/>);
 
   return (
     <>
-      <Button className='position-absolute m-1' href="#home">Home</Button>
-      <Container className="pt-2 text-center" data-view={view}>
+      <Button className='position-absolute m-1 admin-panel-home' href="#home">Home</Button>
+      <Container className="pt-2 text-center admin-panel" data-view={view}>
         <h1>ADMIN</h1>
         <Row>
           <Col>
@@ -91,7 +103,7 @@ export default function Admin(props) {
           {content}
         </div>
         <div>
-          <Row className="p-2 border border-dark m-2 add item flex row-rl-center">
+          <Row className="border border-dark m-2 add item flex row-rl-center rounded">
             <Button variant="light" href={`#new_entry?${view}`}>
               <p className="m-0 plus center">+</p>
             </Button>

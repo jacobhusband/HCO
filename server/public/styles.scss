@@ -10,6 +10,27 @@
   text-decoration: underline !important;
 }
 
+.admin-panel button,
+.edit-entry button.icon {
+  background: transparent;
+  border: none !important;
+  padding: 0 !important;
+}
+
+.edit-entry button.icon {
+  right: 0.85rem;
+  top: -0.25rem;
+  padding: 0.5rem !important;
+}
+
+.admin-panel a {
+  font-size: 1.25rem;
+}
+
+.admin-panel-home {
+  font-size: 0.75rem;
+}
+
 .navbar-nav img,
 .homepage img.header-img {
   display: none;
@@ -35,7 +56,9 @@
 .footer.container,
 .header.container,
 .login.container,
-.new-entry.container {
+.new-entry.container,
+.admin-panel.container,
+.edit-entry.container {
   max-width: 768px !important;
 }
 
@@ -58,7 +81,7 @@
     display: block
   }
 
-  .homepage>.container:first-child {
+  .homepage > .container:first-child {
     background: transparent;
   }
 
@@ -82,6 +105,8 @@
   .homepage a {
     font-size: 1.25rem;
   }
+
+
 }
 
 @media only screen and (min-width: 768px) {

@@ -30,21 +30,20 @@ export default function NewEntry() {
       .then(res => {
         const { product_no } = res;
         const files = Array.from(fileRef.current.files);
-        files.forEach(file => {
+        files.forEach((file,ind) => {
           const form = new FormData();
           form.append('image', file);
           form.append('productId', product_no)
-          return fetch('/api/uploads', {
+          fetch('/api/uploads', {
             method: 'post',
             body: form,
             headers: {
               'X-Access-Token': user.token
             }
-          })
+          }).then(res => {
+              if (ind === files.length - 1) window.location.hash = '#admin_panel'
+            }).catch(err => console.log(err))
         })
-      })
-      .then(res => {
-        console.log(res);
       })
       .catch(err => console.log(err));
   }

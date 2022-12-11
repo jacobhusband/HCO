@@ -143,6 +143,69 @@ app.delete('/api/products', (req, res, next) => {
     .catch(err => next(err));
 })
 
+app.get('/api/product/:id', (req, res, next) => {
+  const { id } = req.params;
+
+  if (!id) {
+    throw new ClientError(400, 'Send an id in the path');
+  }
+
+  const sql = `
+    select products.*, json_agg(images.url) as images, json_agg(images.image_no) as image_ids
+    from products
+    join images on products.product_no = images.product_no
+    where products.product_no = $1
+    group by products.product_no
+  `
+
+  const params = [id];
+
+  db.query(sql, params)
+    .then(result => res.status(202).json(result.rows[0]))
+    .catch(err => next(err))
+})
+
+app.delete('/api/image/:id', (req, res, next) => {
+  const { id } = req.params;
+
+  if (!id) {
+    throw new ClientError(400, 'Send an id in the path');
+  }
+
+  const sql = `
+    delete from images
+    where image_no = $1
+  `
+
+  const params = [id];
+
+  db.query(sql, params)
+    .then(result => res.sendStatus(200))
+    .catch(err => next(err))
+})
+
+app.put('/api/product/:id', (req, res, next) => {
+  const { id } = req.params;
+  const { name, description, price } = req.body;
+
+  if (!id) {
+    throw new ClientError(400, 'Send an id in the path');
+  }
+
+  const sql = `
+    update products
+    set name = $1, description = $2, price = $3
+    where product_no = $4
+    returning *;
+  `
+
+  const params = [name, description, price, id];
+
+  db.query(sql, params)
+    .then(result => res.json(result.rows[0]))
+    .catch(err => next(err));
+})
+
 app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {

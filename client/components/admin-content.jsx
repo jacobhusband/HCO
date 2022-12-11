@@ -3,7 +3,7 @@ import Entry from "./entry";
 import { Container } from "react-bootstrap";
 
 export default function AdminContent(props) {
-  const entries = props.items.map(item => <Entry key={item.product_no} title={item.name} id={item.product_no} date={item.date.split('T')[0]} admin="true" removeProduct={props.removeProduct} removedInventory={props.removedInventory}/>);
+  const entries = props.items.map(item => <Entry key={item.product_no} title={item.name} id={item.product_no} date={item.date.split('T')[0]} admin="true" removeProduct={props.removeProduct} removedInventory={props.removedInventory} editInventory={props.editInventory}/>);
 
   const className = (props.subview === props.category + 's' || props.subview === props.category + 'es')
   ? ''
