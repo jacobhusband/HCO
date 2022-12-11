@@ -35,8 +35,11 @@ export default function Contact(props) {
         Message: ${message.value} <br/>
         `
     }).then(
-      message => alert(message)
-    );
+      message => {
+        if (message === 'OK') alert('The email has been sent!')
+        else alert(message)
+      }
+    ).catch(err => console.log(err));
   }
 
   return (
