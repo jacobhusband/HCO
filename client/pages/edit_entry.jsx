@@ -29,7 +29,45 @@ export default function EditEntry(props) {
 
   const fileRef = useRef();
 
-  function handleSubmit(event) {}
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const user = JSON.parse(localStorage.getItem('user'));
+    const {price, description, title} = event.target.elements;
+    const shipment = {price: price.value,
+                  description: description.value,
+                  name: title.value };
+
+    fetch(`/api/product/${info.product_no}`, {
+      method: 'put',
+      body: JSON.stringify(shipment),
+      headers: {
+        'X-Access-Token': user.token,
+        'Content-Type': 'application/json'
+      }
+    }).then(res => res.json())
+      .then(res => {
+        const { product_no } = res;
+        const files = Array.from(fileRef.current.files);
+        if (!files.length) return;
+        files.forEach(file => {
+          const form = new FormData();
+          form.append('image', file);
+          form.append('productId', product_no)
+          return fetch('/api/uploads', {
+            method: 'post',
+            body: form,
+            headers: {
+              'X-Access-Token': user.token
+            }
+          })
+        })
+      })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => console.log(err));
+  }
 
   function removeImage(event) {
     const {id} = event.target;
@@ -90,7 +128,7 @@ export default function EditEntry(props) {
         </Form.Group>
         <Form.Group controlId="files" className="mb-3">
           <Form.Label>Upload new images</Form.Label>
-          <Form.Control type="file" ref={fileRef} multiple required/>
+          <Form.Control type="file" ref={fileRef} multiple/>
         </Form.Group>
         <Button className="me-2" type="submit">Submit</Button>
         <Button variant="secondary" onClick={cancelEditEntry}>Cancel</Button>
