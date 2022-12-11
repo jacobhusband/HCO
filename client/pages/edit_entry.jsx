@@ -7,6 +7,7 @@ export default function EditEntry(props) {
 
   const [deleteModalShow, setDeleteModalShow] = useState(false);
   const [selectedId, setSelectedId] = useState(null);
+  const [removedImages, setRemovedImages] = useState([]);
   const handleDeleteModalClose = () => setDeleteModalShow(false);
 
   const {info} = props;
@@ -16,6 +17,7 @@ export default function EditEntry(props) {
     description = info.description;
     price = info.price;
     images = info.images.map((url, ind) => {
+      if (removedImages.includes(info.image_ids[ind])) return null;
       return (
         <Col xs={4} className="img-container position-relative" key={info.image_ids[ind]}>
           <Button id={info.image_ids[ind]} className="text-dark position-absolute icon" onClick={removeImage}><i id={info.image_ids[ind]} className="fa-solid fa-times"></i></Button>
@@ -40,7 +42,19 @@ export default function EditEntry(props) {
   }
 
   function continueRemovingImage(event) {
-    console.log(event.target)
+    let tempInventory;
+    const token = JSON.parse(localStorage.getItem('user')).token;
+    fetch(`/api/image/${selectedId}`, {
+      method: 'delete',
+      headers: {
+        'X-Access-Token': token
+      }
+    }).then(result => {
+      const newRemovedImages = [...removedImages];
+      newRemovedImages.push(Number(selectedId));
+      setRemovedImages(newRemovedImages);
+      handleDeleteModalClose();
+    }).catch(err => console.log(err));
   }
 
   return (
