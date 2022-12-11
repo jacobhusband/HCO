@@ -6,7 +6,6 @@ export default function Entry(props) {
 
   function handlePageSwap(event) {
     const {id, title} = event.target
-    console.log(id, title)
     window.location.hash = `#contact?id=${id}&title=${title}`;
   }
 
