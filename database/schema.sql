@@ -1,8 +1,4 @@
-drop table if exists images;
-drop table if exists products;
-drop table if exists users;
-
-create table products (
+create table if not exists products (
   product_no serial primary key,
   name text not null,
   description text not null,
@@ -11,13 +7,13 @@ create table products (
   date timestamp not null default current_timestamp
 );
 
-create table images (
+create table if not exists images (
   image_no serial primary key,
   product_no integer not null references products on delete cascade,
   url text not null
 );
 
-create table users (
+create table if not exists users (
   user_no serial primary key,
   email text unique not null,
   hashedPassword text not null

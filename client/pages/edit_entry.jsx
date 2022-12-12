@@ -13,6 +13,7 @@ export default function EditEntry(props) {
   const {info} = props;
 
   if (info) {
+    console.log(info)
     title = info.name;
     description = info.description;
     price = info.price;
