@@ -89,7 +89,7 @@ app.use(authorizationMiddleware);
 
 app.post('/api/uploads', uploadsMiddleware, (req, res, next) => {
   const { productId } = req.body
-  const url = '/images/' + req.file.filename;
+  const url = req.file.location
   const sql = `
     insert into "images" ("url", "product_no")
     values ($1, $2)
