@@ -25,13 +25,13 @@ export default function Contact(props) {
         Username : process.env.SMTP_USERNAME,
         Password : process.env.SMTP_PASSWORD,
         To : process.env.TARGET_EMAIL,
-        From : process.env.TARGET_EMAIL,
+        From : process.env.SMTP_USERNAME,
         Subject : `${name.value} is trying to contact you about furniture`,
         Body : `
         Name: ${name.value} <br/>
         Email: ${email.value} <br/>
         Phone Number: ${phone.value} <br/>
-        ${product.value} <br/>
+        ${product?.value} <br/>
         Message: ${message.value} <br/>
         `
     }).then(
