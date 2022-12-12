@@ -11,7 +11,7 @@ const authorizationMiddleware = require('./authorization-middleware')
 const path = require("path");
 
 const db = new pg.Pool({
-  connectionString: "postgres://dev:dev@localhost/hco",
+  connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false,
   },
