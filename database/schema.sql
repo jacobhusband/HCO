@@ -1,7 +1,12 @@
+drop table if exists products cascade;
+drop table if exists images cascade;
+drop table if exists users cascade;
+
 create table if not exists products (
   product_no serial primary key,
   name text not null,
   description text not null,
+  link text,
   category text not null,
   price numeric not null,
   date timestamp not null default current_timestamp

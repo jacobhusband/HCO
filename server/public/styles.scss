@@ -41,9 +41,16 @@
 }
 
 .inventory.container a.link-primary {
-  right: 0;
   bottom: 0;
   margin: 0.4rem 0.75rem;
+}
+
+.inventory.container a.link-primary.right-a {
+  right: 0;
+}
+
+.inventory.container a.link-primary.left-a {
+  left: 0;
 }
 
 .homepage > .container:first-child {
