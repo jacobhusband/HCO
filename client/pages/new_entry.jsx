@@ -12,9 +12,10 @@ export default function NewEntry() {
     const category = (parameter.includes('sofa')) ? 'sofa'
       : (parameter.includes('table')) ? 'table' : 'mattress';
     const user = JSON.parse(localStorage.getItem('user'));
-    const {price, description, title} = event.target.elements;
+    const {price, description, title, link} = event.target.elements;
     const info = {price: price.value,
                   description: description.value,
+                  link: link.value,
                   title: title.value,
                   category };
 
@@ -61,6 +62,10 @@ export default function NewEntry() {
         <Form.Group className="mb-3" controlId="title">
           <Form.Label>Title</Form.Label>
           <Form.Control type="text" placeholder="Grey Sectional" required/>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="link">
+          <Form.Label>Link</Form.Label>
+          <Form.Control type="text" placeholder="https://www.google.com/"/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="description">
           <Form.Label>Description</Form.Label>

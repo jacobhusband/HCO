@@ -104,19 +104,19 @@ app.post('/api/uploads', uploadsMiddleware, (req, res, next) => {
 });
 
 app.post('/api/products', (req, res, next) => {
-  const { price, description, title, category } = req.body;
+  const { price, description, title, link, category } = req.body;
 
   if (!price || !description || !title) {
     throw new ClientError(400, 'Try sending a non-falsy price, description, and title');
   }
 
   const sql = `
-    insert into "products" (name, description, category, price)
-    values ($1, $2, $3, $4)
+    insert into "products" (name, description, category, price, link)
+    values ($1, $2, $3, $4, $5)
     returning *;
   `
 
-  const params = [title, description, category, price];
+  const params = [title, description, category, price, link];
 
   db.query(sql, params)
     .then(result => res.json(result.rows[0]))
@@ -186,7 +186,7 @@ app.delete('/api/image/:id', (req, res, next) => {
 
 app.put('/api/product/:id', (req, res, next) => {
   const { id } = req.params;
-  const { name, description, price } = req.body;
+  const { name, description, price, link } = req.body;
 
   if (!id) {
     throw new ClientError(400, 'Send an id in the path');
@@ -194,12 +194,12 @@ app.put('/api/product/:id', (req, res, next) => {
 
   const sql = `
     update products
-    set name = $1, description = $2, price = $3
-    where product_no = $4
+    set name = $1, description = $2, price = $3, link = $4
+    where product_no = $5
     returning *;
   `
 
-  const params = [name, description, price, id];
+  const params = [name, description, price, link, id];
 
   db.query(sql, params)
     .then(result => res.json(result.rows[0]))

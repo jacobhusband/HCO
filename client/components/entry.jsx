@@ -6,7 +6,8 @@ export default function Entry(props) {
 
   function handlePageSwap(event) {
     const {id, title} = event.target
-    window.location.hash = `#contact?id=${id}&title=${title}`;
+    if(isNaN(id) || id === "") window.open(id);
+    else window.location.hash = `#contact?id=${id}&title=${title}`;
   }
 
   if (props.admin) {
@@ -26,12 +27,19 @@ export default function Entry(props) {
     </Row>
   )
   } else {
+    const link = (props.link) && (
+      <a role='button' className="left-a link-primary fst-italic position-absolute" id={props.link} title={props.title} onClick={handlePageSwap}>Link</a>
+    )
+
     return (
-      <Col xs={12} md={6} lg={4} xl={3} className="mb-3 item position-relative">
-        <h2>{props.title}</h2>
-        <ControlledCarousel images={props.images}/>
-        <p className="mt-1 mb-4"><span className="me-2">${props.price}</span>{props.description}</p>
-        <a role='button' className="link-primary fst-italic position-absolute" id={props.product_no} title={props.title} onClick={handlePageSwap}>I want it</a>
+      <Col xs={12} md={6} lg={6} xl={6} className="mb-3">
+        <div className="item position-relative m-1">
+          <h2>{props.title}</h2>
+          <ControlledCarousel images={props.images}/>
+          <p className="mt-1 mb-4"><span className="me-2">${props.price}</span>{props.description}</p>
+          <a role='button' className="right-a link-primary fst-italic position-absolute" id={Number(props.product_no)} title={props.title} onClick={handlePageSwap}>I want it</a>
+          {link}
+        </div>
       </Col>
     )
   }
