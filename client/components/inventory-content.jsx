@@ -11,7 +11,7 @@ export default function InventoryContent(props) {
   : props.category + ' hidden';
 
   return (
-    <Row className={className + ' mt-3 mb-3 justify-content-center gap-3'}>
+    <Row className={className + ' mt-3 mb-3'}>
       {entries}
     </Row>
   )

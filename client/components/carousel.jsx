@@ -12,7 +12,7 @@ export default function ControlledCarousel(props) {
     return (
       <Carousel.Item key={index} className='ratio ratio-4x3'>
         <img
-          className="rounded d-block w-100 img-fluid"
+          className="carousel-img rounded d-block w-100 img-fluid"
           src={image}
           alt="First slide"
         />

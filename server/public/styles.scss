@@ -36,6 +36,10 @@
   display: none;
 }
 
+.carousel-img {
+  object-fit: cover;
+}
+
 .inventory.container a.link-primary {
   right: 0;
   bottom: 0;
@@ -90,7 +94,6 @@
   }
 
   .inventory .item {
-    border: 1px solid rgba(0, 0, 0, 0.195);
     border-radius: 0.5rem;
     padding: 1rem;
     box-shadow: 0 .25rem 0.5rem rgba(0, 0, 0, .15) !important;
@@ -114,10 +117,6 @@
     font-size: 1.25rem;
   }
 
-  .inventory .col-md-6 {
-    width: 45%;
-  }
-
   .homepage h6,
   .homepage a {
     font-size: 1rem;
@@ -133,18 +132,8 @@
     font-size: 1.5rem;
   }
 
-  .inventory .col-lg-4 {
-    width: 30%;
-  }
-
   .homepage h6,
   .homepage a {
     font-size: 1rem;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .inventory .col-xl-3 {
-    width: 23%;
   }
 }

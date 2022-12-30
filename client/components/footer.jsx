@@ -6,7 +6,7 @@ export default function Footer(props) {
   const footerClass = (props.width) ? '' : 'footer'
 
   return (
-    <Nav className='justify-content-around bg-light p-3 mt-auto'>
+    <Nav className='mt-3 justify-content-around bg-light p-3 mt-auto'>
       <Container className={`${footerClass} d-flex justify-content-around`}>
             <a className='text-dark text-decoration-none' data-link="homepage" href="#">Home</a>
             <a className='text-dark text-decoration-none' data-link="inventory" href="#inventory">Inventory</a>
