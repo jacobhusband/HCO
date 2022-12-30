@@ -1,7 +1,3 @@
-drop table if exists products cascade;
-drop table if exists images cascade;
-drop table if exists users cascade;
-
 create table if not exists products (
   product_no serial primary key,
   name text not null,
