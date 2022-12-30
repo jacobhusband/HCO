@@ -19,6 +19,7 @@ I have a brother who has a side hustle buying, cleaning up, and reselling used f
 - HTML
 - [React Bootstrap](https://react-bootstrap.github.io/)
 - SASS
+- [SmtpJS](https://smtpjs.com/)
 
 ## Features
 
